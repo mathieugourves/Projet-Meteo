@@ -4,6 +4,5 @@ export class Note {
       public nbVote: number,
       public somme: number
     ) {
-     console.log('création Note '+titre);
     }
   }

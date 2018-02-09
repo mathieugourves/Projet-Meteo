@@ -5,6 +5,6 @@ export class Artiste {
       public prenom: string,
       public nomArtiste:string
     ) {
-     console.log('création Artiste '+titre);
+     console.log('création Artiste '+nomArtiste);
     }
   }

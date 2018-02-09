@@ -5,7 +5,7 @@ export class Morceau {
       public annee: any,
       public idAlbum:string,
       public idArtiste:string,
-      public idNote:string;
+      public idNote:string
     ) {
      console.log('création Morceau '+titre);
     }
