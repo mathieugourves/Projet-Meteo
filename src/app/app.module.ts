@@ -4,12 +4,17 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { AlbumComponent } from './album/album.component';
+import { MusiqueComponent } from './musique/musique.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AccueilComponent } from './accueil/accueil.component';
 
 const appRoutes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'connexion', component: ConnexionComponent },
+  { path: 'navigation', component: NavigationComponent },
+  { path: 'album',component: AlbumComponent },
+  { path: 'musique',component: MusiqueComponent },
   { path: 'accueil',component: AccueilComponent },
   /*{
     path: 'heroes',
@@ -26,7 +31,9 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     ConnexionComponent,
-    NavigationComponent,
+	NavigationComponent,
+    AlbumComponent,
+    MusiqueComponent,
     AccueilComponent
   ],
   imports: [
