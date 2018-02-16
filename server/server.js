@@ -43,4 +43,10 @@ router.route('/artists/:id/musics')
 
 app.use(express.static(dist))
 
+app.get('*', function (req, res) {
+    res.sendFile('index.html', {
+        root: dist
+    });
+});
+
 app.listen(port)
