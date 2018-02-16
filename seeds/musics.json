@@ -1,0 +1,120 @@
+[{
+    "_id": "ObjectId('m0001')",
+    "name": "Je suis un caillou",
+    "votesCount": 0,
+    "votesSum": 0,
+    "date": "ISODate('1991-01-05T00:00:00Z')",
+    "artist": "ObjectId('a0001')"
+}, {
+    "_id": "ObjectId('m0002')",
+    "name": "Dangerous Spell",
+    "votesCount": 0,
+    "votesSum": 0,
+    "date": "1975-09-29",
+    "artist": "ObjectId('a0003')"
+}, {
+    "_id": "ObjectId('m0003')",
+    "name": "Destructive Pimp",
+    "votesCount": 0,
+    "votesSum": 0,
+    "date": "1997-02-05",
+    "artist": "ObjectId('a0005')"
+}, {
+    "_id": "ObjectId('m0004')",
+    "name": "Desparate Drag Queen",
+    "votesCount": 0,
+    "votesSum": 0,
+    "date": "1964-09-25",
+    "artist": "ObjectId('a0008')"
+}, {
+    "_id": "ObjectId('m0005')",
+    "name": "Sexy Looking Pleasure",
+    "votesCount": 0,
+    "votesSum": 0,
+    "date": "2007-05-14",
+    "artist": "ObjectId('a0010')"
+}, {
+    "_id": "ObjectId('m0006')",
+    "name": "Fragments Of A Lost Madman",
+    "votesCount": 0,
+    "votesSum": 0,
+    "date": "1992-08-20",
+    "artist": "ObjectId('a0012')"
+}, {
+    "_id": "ObjectId('m0007')",
+    "name": "The All American Catalyst",
+    "votesCount": 0,
+    "votesSum": 0,
+    "date": "1991-03-14",
+    "artist": "ObjectId('a0002')"
+}, {
+    "_id": "ObjectId('m0008')",
+    "name": "Overt Saint",
+    "votesCount": 0,
+    "votesSum": 0,
+    "date": "1955-11-06",
+    "artist": "ObjectId('a0003')"
+}, {
+    "_id": "ObjectId('m0009')",
+    "name": "Staring At Your Destruction",
+    "votesCount": 0,
+    "votesSum": 0,
+    "date": "1967-04-23",
+    "artist": "ObjectId('a0006')"
+}, {
+    "_id": "ObjectId('m0010')",
+    "name": "Bright Ghost",
+    "votesCount": 0,
+    "votesSum": 0,
+    "date": "1961-07-25",
+    "artist": "ObjectId('a0015')"
+}, {
+    "_id": "ObjectId('m0011')",
+    "name": "Careless Shadow",
+    "votesCount": 0,
+    "votesSum": 0,
+    "date": "1990-03-14",
+    "artist": "ObjectId('a004')"
+}, {
+    "_id": "ObjectId('m0012')",
+    "name": "Stories Of Scandal",
+    "votesCount": 0,
+    "votesSum": 0,
+    "date": "1992-07-12",
+    "artist": "ObjectId('a0012')"
+}, {
+    "_id": "ObjectId('m0013')",
+    "name": "A New Breed Of Woman",
+    "votesCount": 0,
+    "votesSum": 0,
+    "date": "1966-12-20",
+    "artist": "ObjectId('a0005')"
+}, {
+    "_id": "ObjectId('m0014')",
+    "name": "Dying Fight",
+    "votesCount": 0,
+    "votesSum": 0,
+    "date": "2016-02-16",
+    "artist": "ObjectId('a0018')"
+}, {
+    "_id": "ObjectId('m0015')",
+    "name": "Concern Undiscovered",
+    "votesCount": 0,
+    "votesSum": 0,
+    "date": "1965-03-23",
+    "artist": "ObjectId('a0009')"
+}, {
+    "_id": "ObjectId('m0016')",
+    "name": "Never Wanna See Your Look Again",
+    "votesCount": 0,
+    "votesSum": 0,
+    "date": "1964-02-27",
+    "artist": "ObjectId('a0001')"
+}, {
+    "_id": "ObjectId('m0017')",
+    "name": "Shades Of Fairness",
+    "votesCount": 0,
+    "votesSum": 0,
+    "date": "1965-06-03",
+    "artist": "ObjectId('a0017')"
+}]

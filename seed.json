@@ -1,0 +1,5 @@
+{
+	"undefined": "localhost/MusicDB",
+	"dev": "localhost/MusicDB",
+	"prod": "localhost/MusicDB"
+}
