@@ -9,23 +9,14 @@ import { MusiqueComponent } from './musique/musique.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AccueilComponent } from './accueil/accueil.component';
 
+import {MusiqueService} from './services/musique/musique.service';
 const appRoutes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'connexion', component: ConnexionComponent },
   { path: 'navigation', component: NavigationComponent },
   { path: 'album',component: AlbumComponent },
   { path: 'musique',component: MusiqueComponent },
-  { path: 'accueil',component: AccueilComponent },
-  /*{
-    path: 'heroes',
-    component: HeroListComponent,
-    data: { title: 'Heroes List' }
-  },
-  { path: '',
-    redirectTo: '/heroes',
-    pathMatch: 'full'
-  },
-  { path: '**', component: PageNotFoundComponent }*/
+  { path: 'accueil',component: AccueilComponent }
 ];
 @NgModule({
   declarations: [
@@ -43,7 +34,9 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [
+      MusiqueService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

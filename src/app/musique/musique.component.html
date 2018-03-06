@@ -1,1 +1,19 @@
 <h1 class="text-center align-center col">Liste des musiques du site</h1>
+<div id="musiquesDiv">
+<table id="tableauMusique" class="table">
+    <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Artiste</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let music of musicList">
+            <td>{{music.titre}}</td>
+            <td>{{music.artiste.nickname}}</td>
+            <td>{{music.annee | date:'dd-MM-yyyy'}}</td>
+        </tr>
+    </tbody>
+</table>
+<div>
