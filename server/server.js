@@ -34,14 +34,20 @@ router.route('/artists')
         connector.getArtists()
             .then((result) => res.json(result))
     })
-
+router.route('/artists/:filter')
+    .get(function(req,res){
+        connector.getArtistByFilter(req.params.filter)
+            .then((result)=>{
+                res.json(result)
+            })
+    })
 router.route('/albums')
     .get(function (req, res) {
         connector.getAlbums()
             .then((result) => res.json(result))
     })
 
-router.route('/artists/:id/musics')
+router.route('/artist/:id/musics')
     .get(function (req, res) {
         connector.getMusicsByArtist(req.params.id)
             .then((result) => res.json(result))

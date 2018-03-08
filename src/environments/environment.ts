@@ -7,5 +7,6 @@ export const environment = {
   production: false,
   APIURL : "http://localhost:3000/api",
   SUFFIXAPIGETALLMUSICS : "/musics",
-  SUFFIXAPIGETALLARTISTS: "/artists"
+  SUFFIXAPIGETALLARTISTS: "/artists",
+  SUFFIXAPIGETARTISTSBYFILTER: "/artists/"
 };

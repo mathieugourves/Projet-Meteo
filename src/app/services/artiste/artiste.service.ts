@@ -16,4 +16,16 @@ export class ArtisteService {
       console.log(json)
       return json.map((artiste) =>new Artiste(artiste));
   }
+  async getArtistsByFilter(filter){
+      console.log("getArtistsByFilter")
+      if(filter){
+          var url = environment.APIURL +""+environment.SUFFIXAPIGETARTISTSBYFILTER+""+filter;
+          var result =  await fetch(url, {
+              method: 'get'
+          });
+          var json = await result.json();
+          return json.map((artiste) =>new Artiste(artiste));
+      }
+      return {};
+  }
 }

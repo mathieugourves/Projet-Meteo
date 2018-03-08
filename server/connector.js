@@ -37,6 +37,12 @@ module.exports = class MongoConnector {
     getMusics() {
         return Music.find({}).populate('artist').populate('album').exec()
     }
+    getArtistByFilter(filter){
+        let valARequeter = new RegExp(filter,"i");
+        return Artist.find({
+            nickName: valARequeter
+        }).exec()
+    }
 
     getArtists() {
         return Artist.find({}).exec()
