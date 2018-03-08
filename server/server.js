@@ -35,9 +35,21 @@ router.route('/artists')
             .then((result) => res.json(result))
     })
 
+router.route('/albums')
+    .get(function (req, res) {
+        connector.getAlbums()
+            .then((result) => res.json(result))
+    })
+
 router.route('/artists/:id/musics')
     .get(function (req, res) {
         connector.getMusicsByArtist(req.params.id)
+            .then((result) => res.json(result))
+    })
+
+router.route('/albums/:id/musics')
+    .get(function (req, res) {
+        connector.getMusicsByAlbum(req.params.id)
             .then((result) => res.json(result))
     })
 

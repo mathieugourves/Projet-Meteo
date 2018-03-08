@@ -6,8 +6,12 @@ module.exports = mongoose.model('Music', new Schema({
     date: Date,
     votesCount: Number,
     votesSum: Number,
-    artist: [{
+    artist: {
         type: Schema.Types.ObjectId,
         ref: 'Artist'
-    }]
+    },
+    album: {
+        type: Schema.Types.ObjectId,
+        ref: 'Album'
+    }
 }))

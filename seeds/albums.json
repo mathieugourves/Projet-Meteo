@@ -1,0 +1,51 @@
+[{
+    "_id": {
+        "$oid": "000000000000000000000001"
+    },
+    "name": "Fission Chop Thunder",
+    "votesSum": 0,
+    "votesCount": 0,
+    "date": {
+        "$date": "1991-06-02"
+    }
+}, {
+    "_id": {
+        "$oid": "000000000000000000000002"
+    },
+    "name": "Bone Grinding Pyramidscroll",
+    "votesSum": 0,
+    "votesCount": 0,
+    "date": {
+        "$date": "1971-09-04"
+    }
+}, {
+    "_id": {
+        "$oid": "000000000000000000000003"
+    },
+    "name": "Urban Fiddlers Cattle",
+    "votesSum": 0,
+    "votesCount": 0,
+    "date": {
+        "$date": "1965-02-29"
+    }
+}, {
+    "_id": {
+        "$oid": "000000000000000000000004"
+    },
+    "name": "The Turmoil Bop Clatter Kibitz Schismatic",
+    "votesSum": 0,
+    "votesCount": 0,
+    "date": {
+        "$date": "2005-06-27"
+    }
+}, {
+    "_id": {
+        "$oid": "000000000000000000000005"
+    },
+    "name": "The Pretty Bumblebee",
+    "votesSum": 0,
+    "votesCount": 0,
+    "date": {
+        "$date": "2011-11-15"
+    }
+}]
