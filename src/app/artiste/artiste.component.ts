@@ -12,13 +12,11 @@ export class ArtisteComponent implements OnInit {
   constructor(private artisteService : ArtisteService) { }
 
   async ngOnInit() {
-      console.log("ngInit")
       var vm = this;
       var response = await this.artisteService.getAllArtists().then((response)=>{
           vm.artisteList = response;
 
       });
-      console.log("Resultat recu : ",this.artisteList)
   }
 
 }

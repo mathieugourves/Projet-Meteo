@@ -17,7 +17,6 @@ export class MusiqueComponent implements OnInit {
           vm.musicList = response;
 
       });
-      console.log("Resultat recu : ",this.musicList)
   }
 
 }

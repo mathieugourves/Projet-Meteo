@@ -13,7 +13,7 @@ export class Musique {
         this.titre = item.name;
         this.annee = item.date;
         this.votesCount = item.votesCount;
-        this.artiste  = new Artiste(item.artist[0]);
+        this.artiste  = new Artiste(item.artist);
         this.votesSum = item.votesSum;
     }
   }
