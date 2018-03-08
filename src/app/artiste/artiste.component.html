@@ -1,0 +1,18 @@
+<h1 class="text-center align-center col">Liste des Artistes du site</h1>
+<div id="artistesDiv">
+    <table id="artistsList" class="table">
+        <thead>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Nom d'artiste</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let artist of artisteList">
+                <td>{{artist.stagename}}</td>
+                <td>{{artist.firstname}}</td>
+                <td>{{artist.lastname}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
