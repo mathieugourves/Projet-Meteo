@@ -3,3 +3,9 @@
 body{
 	margin:auto;
 }
+
+table{
+	width:70%!important; 
+	margin: auto;
+	margin-top: 50px;
+}
