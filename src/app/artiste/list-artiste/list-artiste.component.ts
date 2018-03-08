@@ -9,6 +9,7 @@ import {Artiste} from 'bean/artiste'
 })
 export class ListArtisteComponent implements OnInit {
     artisteList : Artiste[];
+    searchedArtist : string;
     constructor(private artisteService : ArtisteService) { }
 
     async ngOnInit() {
@@ -18,5 +19,8 @@ export class ListArtisteComponent implements OnInit {
 
       });
     }
-
+    searchArtist(){
+        console.log("Search Artist")
+        console.log(this.searchedArtist)
+    }
 }
