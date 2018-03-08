@@ -5,4 +5,5 @@ Pour installer correctement le projet avant de l'utiliser :
     - npm install   Recuperation des dépendances
     - npm run seed  Insertion en BDD
     - node server/server.js
-    - ng build --watch
+    - ng build --watch ou  npm run watch
+    - aller sur http://localhost:3000/
