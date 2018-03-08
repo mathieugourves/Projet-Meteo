@@ -13,13 +13,14 @@ import { ArtisteComponent } from './artiste/artiste.component';
 import {MusiqueService} from './services/musique/musique.service';
 import {ArtisteService} from './services/artiste/artiste.service';
 const appRoutes: Routes = [
-  { path: '', component: AccueilComponent },
   { path: 'connexion', component: ConnexionComponent },
   { path: 'navigation', component: NavigationComponent },
   { path: 'album',component: AlbumComponent },
   { path: 'musique',component: MusiqueComponent },
   { path: 'accueil',component: AccueilComponent },
-  { path: 'artiste',component: ArtisteComponent }
+  { path: 'artiste',component: ArtisteComponent },
+  //A laisser en dernier car chemin par défaut
+  { path: '**', component: AccueilComponent }
 ];
 @NgModule({
   declarations: [
