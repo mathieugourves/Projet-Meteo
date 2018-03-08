@@ -12,13 +12,16 @@ import { ArtisteComponent } from './artiste/artiste.component';
 
 import {MusiqueService} from './services/musique/musique.service';
 import {ArtisteService} from './services/artiste/artiste.service';
+import { ProfileArtisteComponent } from './artiste/profile-artiste/profile-artiste.component';
+import { ListArtisteComponent } from './artiste/list-artiste/list-artiste.component';
 const appRoutes: Routes = [
   { path: 'connexion', component: ConnexionComponent },
   { path: 'navigation', component: NavigationComponent },
   { path: 'album',component: AlbumComponent },
   { path: 'musique',component: MusiqueComponent },
   { path: 'accueil',component: AccueilComponent },
-  { path: 'artiste',component: ArtisteComponent },
+  { path: 'listArtiste',component: ListArtisteComponent },
+  {path : 'profilArtiste', component:ProfileArtisteComponent}
   //A laisser en dernier car chemin par défaut
   { path: '**', component: AccueilComponent }
 ];
@@ -30,7 +33,9 @@ const appRoutes: Routes = [
     AlbumComponent,
     MusiqueComponent,
     AccueilComponent,
-    ArtisteComponent
+    ArtisteComponen,
+    ProfileArtisteComponent,
+    ListArtisteComponentt
   ],
   imports: [
     BrowserModule,
