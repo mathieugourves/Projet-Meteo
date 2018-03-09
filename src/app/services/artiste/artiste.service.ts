@@ -28,4 +28,17 @@ export class ArtisteService {
       }
       return {};
   }
+
+  async getArtist(idArtist){
+      console.log("getArtist")
+      if(idArtist){
+          var url = environment.APIURL +""+environment.SUFFIXAPIGETARTIST+""+idArtist;
+          var result =  await fetch(url, {
+              method: 'get'
+          });
+          var json = await result.json();
+          return json.map((artiste) =>new Artiste(artiste));
+      }
+      return {};
+  }
 }

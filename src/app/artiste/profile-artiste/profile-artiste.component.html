@@ -1,1 +1,14 @@
-<p>ProfilArtist</p>
+<div id="searchAristBar" class="row">
+    <div class="col-2"></div>
+    <p class="col-2">Sélctionner un Artiste</p>
+    <select [(ngModel)]="selectedArtist" class="col-5" (change)="onSelectChange()">
+      <option *ngFor="let artist of artisteList" [ngValue]="artist">{{artist.stagename}}</option>
+    </select>
+</div>
+<div *ngIf="selectedArtist" >
+    <p>{{selectedArtist.stagename}}</p>
+    <p>{{selectedArtist.firstname}}</p>
+    <p>{{selectedArtist.lastname}}</p>
+
+
+</div>

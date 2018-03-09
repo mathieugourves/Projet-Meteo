@@ -44,6 +44,11 @@ module.exports = class MongoConnector {
         }).exec()
     }
 
+    getArtist(idArtist){
+        return Artist.find({
+            _id: mongoose.Types.ObjectId(idArtist)
+        }).exec()
+    }
     getArtists() {
         return Artist.find({}).exec()
     }

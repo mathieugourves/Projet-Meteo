@@ -21,18 +21,17 @@ export class ListArtisteComponent implements OnInit {
       });
     }
     async searchArtist(){
-        console.log("Search Artist")
         var vm = this
+        var response
         if(this.searchedArtist){
-            console.log("mini 3 c")
-            var response = await this.artisteService.getArtistsByFilter(this.searchedArtist)
+            response = await this.artisteService.getArtistsByFilter(this.searchedArtist)
             vm.artisteList = response;
 
         }
         if(!this.searchedArtist){
-            var response = await this.artisteService.getAllArtists().then((response)=>{
+            response = await this.artisteService.getAllArtists().then((response)=>{
                 vm.artisteList = response;
-            }
+            })
         }
 
 

@@ -34,6 +34,11 @@ router.route('/artists')
         connector.getArtists()
             .then((result) => res.json(result))
     })
+router.route('/artist/:idArtist')
+    .get(function(req,res){
+        connector.getArtist(req.params.idArtist)
+            .then((result)=> res.json(result))
+    })
 router.route('/artists/:filter')
     .get(function(req,res){
         connector.getArtistByFilter(req.params.filter)
@@ -67,4 +72,5 @@ app.get('*', function (req, res) {
     });
 });
 
+console.log("Server Start on port ",port)
 app.listen(port)
