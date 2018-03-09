@@ -10,5 +10,17 @@
     <p>{{selectedArtist.firstname}}</p>
     <p>{{selectedArtist.lastname}}</p>
 
+    <table id="musicList" class="table table-striped">
+        <thead>
+            <th>Titre</th>
+            <th>Année</th>
 
+        </thead>
+        <tbody>
+            <tr *ngFor="let music of musicList">
+                <td>{{music.titre}}</td>
+                <td>{{music.annee | date:'dd-MM-yyyy'}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
