@@ -54,7 +54,7 @@ module.exports = class MongoConnector {
     }
 
     getAlbums() {
-        return Album.find({}).exec()
+        return Album.find({}).populate('artist').exec()
     }
 
     getMusicsByArtist(id) {

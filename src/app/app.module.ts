@@ -12,6 +12,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 
 import { MusiqueService } from './services/musique/musique.service';
 import { ArtisteService } from './services/artiste/artiste.service';
+import { AlbumService} from './services/album/album.service'
 import { ProfileArtisteComponent } from './artiste/profile-artiste/profile-artiste.component';
 import { ListArtisteComponent } from './artiste/list-artiste/list-artiste.component';
 const appRoutes: Routes = [
@@ -46,7 +47,8 @@ const appRoutes: Routes = [
 
   providers: [
       MusiqueService,
-      ArtisteService
+      ArtisteService,
+      AlbumService
   ],
   bootstrap: [AppComponent]
 })
