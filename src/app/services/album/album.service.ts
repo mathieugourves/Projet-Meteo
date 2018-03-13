@@ -15,4 +15,13 @@ export class AlbumService {
       var json = await result.json();
       return json.map((album) =>new Album(album));
   }
+  async getAlbumsByArtist(idArtist){
+      console.log("getAlbumsByArtist")
+      var url = environment.APIURL +""+environment.SUFFIXAPIGETALBUMSBYARTIST+idArtist;
+      var result =  await fetch(url, {
+          method: 'get'
+      });
+      var json = await result.json();
+      return json.map((album) =>new Album(album));
+  }
 }

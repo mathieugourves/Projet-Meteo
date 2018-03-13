@@ -58,6 +58,11 @@ router.route('/artist/:id/musics')
             .then((result) => res.json(result))
     })
 
+router.route('/albums/:idArtist')
+    .get(function(req,res){
+        connector.getAlbumsByArtist(req.params.idArtist)
+            .then((result)=> res.json(result))
+    })
 router.route('/albums/:id/musics')
     .get(function (req, res) {
         connector.getMusicsByAlbum(req.params.id)

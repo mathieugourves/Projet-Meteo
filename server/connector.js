@@ -56,7 +56,11 @@ module.exports = class MongoConnector {
     getAlbums() {
         return Album.find({}).populate('artist').exec()
     }
-
+    getAlbumsByArtist(idArtist){
+        return Album.find({
+            artist : mongoose.Types.ObjectId(idArtist)
+        }).exec()
+    }
     getMusicsByArtist(id) {
         return Music.find({
             artist: mongoose.Types.ObjectId(id)
