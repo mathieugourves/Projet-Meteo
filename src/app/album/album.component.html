@@ -14,14 +14,13 @@
             <td>{{album.titre}}</td>
             <td>{{album.artiste.stagename}}</td>
             <td>{{album.annee | date:'dd-MM-yyyy'}}</td>
-            <td><span class="octicon octicon-clippy"></span></td>
             <td>
-                <button class="btn">
-                    <span class="octicon octicon-clippy"></span>
-                    <img src="node_modules/octicons/lib/svg/clippy.svg"></img>
-                </button>
+                <button class="btn"> - </button>
             </td>
-            <td></td>
+            <td><p *ngIf="(album.votesSum) as value;">{{value}}<p></td>
+            <td>
+                <button class="btn"> + </button>
+            </td>
         </tr>
     </tbody>
 </table>

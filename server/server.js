@@ -63,6 +63,11 @@ router.route('/albums/:id/musics')
         connector.getMusicsByAlbum(req.params.id)
             .then((result) => res.json(result))
     })
+router.route('/albums/:id/:vote')
+    .put(function (req, res) {
+        connector.setAlbumVote(req.params.id,req.params.vote)
+            .then((result) => res.json(result))
+    })
 
 app.use(express.static(dist))
 

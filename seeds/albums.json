@@ -3,8 +3,8 @@
         "$oid": "000000000000000000000001"
     },
     "name": "Fission Chop Thunder",
-    "votesSum": 0,
-    "votesCount": 0,
+    "votesSum": 12,
+    "votesCount": 3,
     "date": {
         "$date": "1991-06-02"
     },"artist": {
@@ -15,8 +15,8 @@
         "$oid": "000000000000000000000002"
     },
     "name": "Bone Grinding Pyramidscroll",
-    "votesSum": 0,
-    "votesCount": 0,
+    "votesSum": 12,
+    "votesCount": 3,
     "date": {
         "$date": "1971-09-04"
     }

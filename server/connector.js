@@ -68,5 +68,8 @@ module.exports = class MongoConnector {
             album: mongoose.Types.ObjectId(id)
         }).exec()
     }
+    setAlbumVote(id,vote) {
+        return Album.update({_id: mongoose.Types.ObjectId(id)},{ $set: { votesSum: vote }}).exec()
+    }
 
 }

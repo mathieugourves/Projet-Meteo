@@ -9,6 +9,7 @@
     <p>{{selectedArtist.stagename}}</p>
     <p>{{selectedArtist.firstname}}</p>
     <p>{{selectedArtist.lastname}}</p>
+    <p>Votes : {{selectArtist.votesSum}}</p>
 
     <table id="musicList" class="table table-striped">
         <thead>
@@ -20,6 +21,13 @@
             <tr *ngFor="let music of musicList">
                 <td>{{music.titre}}</td>
                 <td>{{music.annee | date:'dd-MM-yyyy'}}</td>
+                <td>
+                    <button class="btn"> - </button>
+                </td>
+                <td><p *ngIf="(music.votesSum) as value;">{{value}}<p></td>
+                <td>
+                    <button class="btn"> + </button>
+                </td>
             </tr>
         </tbody>
     </table>

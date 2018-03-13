@@ -17,6 +17,13 @@
                 <td>{{artist.stagename}}</td>
                 <td>{{artist.firstname}}</td>
                 <td>{{artist.lastname}}</td>
+                <td>
+                    <button class="btn"> - </button>
+                </td>
+                <td><p *ngIf="(artist.votesSum) as value;">{{value}}<p></td>
+                <td>
+                    <button class="btn"> + </button>
+                </td>
             </tr>
         </tbody>
     </table>
