@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 import { Artiste } from 'bean/artiste'
+import { Album } from 'bean/album'
 
 @Injectable()
 export class ArtisteService {
