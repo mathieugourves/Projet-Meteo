@@ -1,13 +1,15 @@
 var express = require('express')
 var router = express.Router()
 
-function api(passport,connector) {
+function api(passport, connector) {
 
     router.route('/musics')
-        .get(function (req, res) {
-                connector.getMusics()
-                    .then((result) => res.json(result))
-
+        .get(passport.authenticate('jwt', {
+            session: false
+        }), function (req, res) {
+            console.log(getToken(req.headers))
+            connector.getMusics()
+                .then((result) => res.json(result))
         })
 
     router.route('/artists')

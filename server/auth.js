@@ -24,6 +24,10 @@ function auth(passport) {
                         res.json({
                             success: true,
                             token: 'JWT ' + token
+                            user: {
+                                login: user.login,
+                                date: user.date
+                            }
                         })
                     } else {
                         res.status(401).send({
@@ -38,19 +42,20 @@ function auth(passport) {
     router.route('/signup')
         .post(function (req, res) {
             if (!req.body.login || !req.body.password) {
-                res.json({
+                res.status(400).json({
                     success: false,
                     msg: 'Veuillez entrer un nom d\'utilisateur et un mot de passe.'
                 })
             } else {
                 var newUser = new User({
-                    username: req.body.login,
-                    password: req.body.password
+                    login: req.body.login,
+                    password: req.body.password,
+                    date: new Date()
                 })
 
                 newUser.save(function (err) {
                     if (err) {
-                        return res.json({
+                        return res.status(400).json({
                             success: false,
                             msg: 'L\'utilisateur existe déjà.'
                         })

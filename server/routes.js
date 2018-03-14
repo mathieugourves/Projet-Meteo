@@ -16,7 +16,7 @@ module.exports = function (app, router, passport) {
 
     app.use('/auth', auth(passport))
 
-    app.use('/api', api(passport,connector))
+    app.use('/api', api(passport, connector))
 
     app.use(express.static(dist))
 

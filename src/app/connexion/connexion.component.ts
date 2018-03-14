@@ -27,6 +27,7 @@ export class ConnexionComponent implements OnInit {
         this.http.post('/auth/signin', this.loginData).subscribe(resp => {
             this.data = resp;
             localStorage.setItem('jwtToken', this.data.token);
+            localStorage.setItem('user', this.data.user);
             this.router.navigate(['/']);
         }, err => {
             this.message = err.error.msg;

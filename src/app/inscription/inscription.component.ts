@@ -12,7 +12,7 @@ import { of } from 'rxjs/observable/of';
 })
 export class InscriptionComponent implements OnInit {
 
-    signupData = { username: '', password: '' };
+    signupData = { login: '', password: '' };
     message = '';
 
     constructor(private http: HttpClient, private router: Router) { }
@@ -22,6 +22,7 @@ export class InscriptionComponent implements OnInit {
 
     signup() {
         this.http.post('/auth/signup', this.signupData).subscribe(resp => {
+            console.log(resp)
             this.router.navigate(['/connexion']);
         }, err => {
             this.message = err.error.msg;

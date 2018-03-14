@@ -1,4 +1,3 @@
-
 const JwtStrategy = require('passport-jwt').Strategy
 const ExtractJwt = require('passport-jwt').ExtractJwt
 const config = require('./config.json')
@@ -12,7 +11,7 @@ module.exports = function (passport) {
     opts.secretOrKey = config.secret
 
     passport.use(new JwtStrategy(opts, function (jwt_payload, done) {
-        User.findById(jwt_payload.id, function (err, user) {
+        User.findById(jwt_payload._id, function (err, user) {
             done(err, user)
         })
     }))
