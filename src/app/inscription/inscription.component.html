@@ -14,35 +14,32 @@
 
         <div class="panel panel-default">
             <div class="panel-heading">
-                <div class="panel-title text-center">Connexion</div>
+                <div class="panel-title text-center">Inscription</div>
             </div>
 
             <div class="panel-body">
-                <form (ngSubmit)="login()" class="form-horizontal form-signin" #loginForm="ngForm">
+                <form (ngSubmit)="signup()" #signupForm="ngForm" class="form-horizontal form-signin">
                     <div class="alert alert-warning alert-dismissible" role="alert" *ngIf="message !== ''">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> {{message}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> {{ message }}
                     </div>
 
                     <div class="form-group">
                         <label for="login">Identifiant</label>
-                        <input type="text" class="form-control" [(ngModel)]="loginData.login" name="login" value="" placeholder="Identifiant" required />
+                        <input type="text" class="form-control" [(ngModel)]="signupData.login" name="login" value="" placeholder="Identifiant" required />
                     </div>
 
                     <div class="form-group">
                         <label for="password">Mot de passe</label>
-                        <input type="password" class="form-control" [(ngModel)]="loginData.password" name="password" placeholder="Mot de Passe" required/>
+                        <input type="password" class="form-control" [(ngModel)]="signupData.password" name="password" placeholder="Mot de Passe" required/>
                     </div>
 
                     <div class="form-group">
                         <!-- Button -->
                         <div class="controls">
-                            <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">Connexion</button>
+                            <button type="submit" class="btn btn-primary" [disabled]="!signupForm.form.valid">S'inscrire</button>
                         </div>
-
-                        <p>
-                            Pas encore membre ? <a [routerLink]="['/inscription']">S'inscrire</a>
-                        </p>
                     </div>
+
                 </form>
             </div>
         </div>

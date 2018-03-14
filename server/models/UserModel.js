@@ -38,4 +38,8 @@ schema.pre('save', function (next) {
     })
 })
 
+schema.methods.validPassword = function (password) {
+    return bcrypt.compareSync(password, this.password);
+};
+
 module.exports = mongoose.model('User', schema)
