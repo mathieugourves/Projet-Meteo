@@ -27,4 +27,5 @@ app.use(flash())
 
 routes(app, router, passport)
 
+console.log("Server Start on port ",port)
 app.listen(port)

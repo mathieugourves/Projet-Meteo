@@ -57,6 +57,25 @@ function api(passport) {
                 .then((result) => res.json(result))
         })
 
+    router.route('/artist/:id/musics')
+        .get(function (req, res) {
+            connector.getMusicsByArtist(req.params.id)
+                .then((result) => res.json(result))
+        })
+
+    router.route('/artists/:id/albums')
+        .get(function (req, res) {
+            connector.getAlbumsByArtist(req.params.id)
+                .then((result) => res.json(result))
+        })
+
+    router.route('/albums/:id/:vote')
+        .put(function (req, res) {
+            connector.setAlbumVote(req.params.id, req.params.vote)
+                .then((result) => res.json(result))
+        })
+
+
     return router
 }
 

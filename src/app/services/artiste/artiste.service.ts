@@ -43,4 +43,14 @@ export class ArtisteService {
         }
         return {};
     }
+
+    async getAlbumsByArtist(idArtist) {
+        console.log("getAlbumsByArtist")
+        var url = environment.APIURL + "" + environment.SUFFIXAPIGETMUSICSBYARTIST1 + idArtist + environment.SUFFIXAPIGETALLALBUMS;
+        var result = await fetch(url, {
+            method: 'get'
+        });
+        var json = await result.json();
+        return json.map((album) => new Album(album));
+    }
 }

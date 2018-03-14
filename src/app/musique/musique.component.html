@@ -13,6 +13,13 @@
             <td>{{music.titre}}</td>
             <td>{{music.artiste.stagename}}</td>
             <td>{{music.annee | date:'dd-MM-yyyy'}}</td>
+            <td>
+                <button class="btn"> - </button>
+            </td>
+            <td><p *ngIf="(music.votesSum) as value;">{{value}}<p></td>
+            <td>
+                <button class="btn"> + </button>
+            </td>
         </tr>
     </tbody>
 </table>

@@ -5,22 +5,46 @@
       <option *ngFor="let artist of artisteList" [ngValue]="artist">{{artist.stagename}}</option>
     </select>
 </div>
-<div *ngIf="selectedArtist" >
+<div *ngIf="selectedArtist">
     <p>{{selectedArtist.stagename}}</p>
     <p>{{selectedArtist.firstname}}</p>
     <p>{{selectedArtist.lastname}}</p>
 
-    <table id="musicList" class="table table-striped">
+     <h3>Liste des Albums liés à <i>"{{selectedArtist.stagename}}"</i></h3>
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let album of albumList">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header" data-toggle="collapse" [attr.data-target]="'#' + album.id" aria-expanded="false" [attr.aria-controls]="album.id">>
+                    {{album.titre}}
+                    <span class="badge badge-primary badge-pill">nbMusic</span>
+                </div>
+                <div id="{{album.id}}">
+                    <div *ngFor="let music of musicList" class="list-group-item" aria-hidden="true">{{music.titre}}</div>
+                </div>
+                <!-- <ul id="list-item" class="list-group list-group-flush collapse">
+                    <li *ngFor="let music of musicList" class="list-group-item" aria-hidden="true">{{music.titre}}</li>
+                </ul> -->
+            </div>
+        </li>
+    </ul>
+<!--
+    <table id="albumList" class="table table-striped">
         <thead>
             <th>Titre</th>
             <th>Année</th>
-
         </thead>
         <tbody>
-            <tr *ngFor="let music of musicList">
-                <td>{{music.titre}}</td>
-                <td>{{music.annee | date:'dd-MM-yyyy'}}</td>
+            <tr *ngFor="let album of albumList">
+                <td>{{album.titre}}</td>
+                <td>{{album.annee | date:'dd-MM-yyyy'}}</td>
+                <td>
+                    <button class="btn"> - </button>
+                </td>
+                <td><p *ngIf="(album.votesSum) as value;">{{value}}<p></td>
+                <td>
+                    <button class="btn"> + </button>
+                </td>
             </tr>
         </tbody>
-    </table>
+    </table> -->
 </div>

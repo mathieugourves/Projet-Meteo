@@ -1,12 +1,17 @@
+import {Artiste} from 'bean/artiste';
 export class Album {
-    constructor(
-      public id: string,
-      public titre: string,
-      public annee: any,
-      public idArtiste:string,
-      public idPochette:string,
-      public idNote:string
-    ) {
-     console.log('création Album '+titre);
+     id: string
+     titre: string
+     annee: any
+     votesSum:number
+     votesCount:number
+     artiste : Artiste
+    constructor(item :any) {
+     this.id = item._id;
+     this.titre = item.name;
+     this.annee = item.date;
+     this.votesSum = item.votesSum;
+     this.votesCount = item.votesCount;
+     this.artiste  = new Artiste(item.artist);
     }
   }

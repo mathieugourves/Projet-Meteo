@@ -17,5 +17,9 @@ module.exports = mongoose.model('Album', new Schema({
     votesSum: {
         type: Number,
         required: true
+    },
+    artist: {
+        type: Schema.Types.ObjectId,
+        ref: 'Artist'
     }
 }))

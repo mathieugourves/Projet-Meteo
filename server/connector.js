@@ -56,9 +56,13 @@ module.exports = class MongoConnector {
     }
 
     getAlbums() {
-        return Album.find({}).exec()
+        return Album.find({}).populate('artist').exec()
     }
-
+    getAlbumsByArtist(idArtist){
+        return Album.find({
+            artist : mongoose.Types.ObjectId(idArtist)
+        }).exec()
+    }
     getMusicsByArtist(id) {
         return Music.find({
             artist: mongoose.Types.ObjectId(id)
@@ -69,6 +73,9 @@ module.exports = class MongoConnector {
         return Music.find({
             album: mongoose.Types.ObjectId(id)
         }).exec()
+    }
+    setAlbumVote(id,vote) {
+        return Album.update({_id: mongoose.Types.ObjectId(id)},{ $set: { votesSum: vote }}).exec()
     }
 
 }
