@@ -10,11 +10,28 @@
     <p>{{selectedArtist.firstname}}</p>
     <p>{{selectedArtist.lastname}}</p>
 
+     <h3>Liste des Albums liés à <i>"{{selectedArtist.stagename}}"</i></h3>
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let album of albumList">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header" data-toggle="collapse" [attr.data-target]="'#' + album.id" aria-expanded="false" [attr.aria-controls]="album.id">>
+                    {{album.titre}}
+                    <span class="badge badge-primary badge-pill">nbMusic</span>
+                </div>
+                <div id="{{album.id}}">
+                    <div *ngFor="let music of musicList" class="list-group-item" aria-hidden="true">{{music.titre}}</div>
+                </div>
+                <!-- <ul id="list-item" class="list-group list-group-flush collapse">
+                    <li *ngFor="let music of musicList" class="list-group-item" aria-hidden="true">{{music.titre}}</li>
+                </ul> -->
+            </div>
+        </li>
+    </ul>
+<!--
     <table id="albumList" class="table table-striped">
         <thead>
             <th>Titre</th>
             <th>Année</th>
-
         </thead>
         <tbody>
             <tr *ngFor="let album of albumList">
@@ -27,9 +44,7 @@
                 <td>
                     <button class="btn"> + </button>
                 </td>
-
             </tr>
         </tbody>
-    </table>
-
+    </table> -->
 </div>

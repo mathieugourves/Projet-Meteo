@@ -23,6 +23,9 @@ export class ProfileArtisteComponent implements OnInit {
       var response = await this.artisteService.getAllArtists().then((response)=>{
           vm.artisteList = response;
       });
+      response = await this.musicService.getAllMusiques().then((response)=>{
+          vm.musicList = response;
+      });
   }
   //Fonction load les musiques d'un artiste
   //mettre en async await
