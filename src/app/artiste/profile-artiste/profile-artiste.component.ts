@@ -32,6 +32,7 @@ export class ProfileArtisteComponent implements OnInit {
     //Fonction load les musiques d'un artiste
     //mettre en async await
     async onSelectChange() {
+        this.albumsData = []
         var vm = this;
         var response = await this.artisteService.getAlbumsByArtist(this.selectedArtist.id).then((response) => {
             vm.albumList = response;
@@ -45,7 +46,7 @@ export class ProfileArtisteComponent implements OnInit {
             albumContent = new AlbumContent(album,vm.musicList);
             this.albumsData.push(albumContent)
             console.log(albumContent)
-        }) 
+        })
     }
     getMusicListOfAlbum(idAlbum){
         var musicListOfAlbum : Musique[];
