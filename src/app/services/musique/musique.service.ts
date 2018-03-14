@@ -24,5 +24,13 @@ export class MusiqueService {
       var json = await result.json();
       return json.map((musique) =>new Musique(musique));
   }
+  async getMusicsByAlbum(id){
+      var url = environment.APIURL +""+environment.SUFFIXAPIGETALLALBUMS+"/"+id+""+environment.SUFFIXAPIGETALLMUSICS;
+      var result =  await fetch(url, {
+          method: 'get'
+      });
+      var json = await result.json();
+      return json.map((musique) =>new Musique(musique));
+  }
 
 }

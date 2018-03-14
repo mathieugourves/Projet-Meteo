@@ -47,7 +47,8 @@ export class ArtisteService {
 
     async getAlbumsByArtist(idArtist) {
         console.log("getAlbumsByArtist")
-        var url = environment.APIURL + "" + environment.SUFFIXAPIGETMUSICSBYARTIST1 + idArtist + environment.SUFFIXAPIGETALLALBUMS;
+        var url = environment.APIURL + "" + environment.SUFFIXAPIGETALLARTISTS +"/"+ idArtist + environment.SUFFIXAPIGETALLALBUMS;
+        console.log(url)
         var result = await fetch(url, {
             method: 'get'
         });

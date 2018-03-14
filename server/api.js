@@ -1,22 +1,13 @@
 var express = require('express')
 var router = express.Router()
 
-function api(passport) {
+function api(passport,connector) {
 
     router.route('/musics')
-        .get(passport.authenticate('jwt', {
-            session: false
-        }), function (req, res) {
-            var token = getToken(req.headers);
-            if (token) {
+        .get(function (req, res) {
                 connector.getMusics()
                     .then((result) => res.json(result))
-            } else {
-                return res.status(403).send({
-                    success: false,
-                    msg: 'Non autorisé.'
-                });
-            }
+
         })
 
     router.route('/artists')

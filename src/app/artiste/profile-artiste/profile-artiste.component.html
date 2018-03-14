@@ -12,14 +12,14 @@
 
      <h3>Liste des Albums liés à <i>"{{selectedArtist.stagename}}"</i></h3>
     <ul class="list-group">
-        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let album of albumList">
+        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let albumData of albumsData">
             <div class="card" style="width: 18rem;">
-                <div class="card-header" data-toggle="collapse" [attr.data-target]="'#' + album.id" aria-expanded="false" [attr.aria-controls]="album.id">>
-                    {{album.titre}}
-                    <span class="badge badge-primary badge-pill">nbMusic</span>
+                <div class="card-header collapsed" data-toggle="collapse" [attr.data-target]="'#' + albumData.album.id" aria-expanded="false" [attr.aria-controls]="albumData.album.id" >
+                    {{albumData.album.titre}}
+                    <span class="badge badge-primary badge-pill">{{albumData.musicList.length}}</span>
                 </div>
-                <div id="{{album.id}}">
-                    <div *ngFor="let music of musicList" class="list-group-item" aria-hidden="true">{{music.titre}}</div>
+                <div id="{{albumData.album.id}}" aria-hidden="true">
+                    <div *ngFor="let music of getMusicListOfAlbum(albumData.album.id)" class="list-group-item">{{music.titre}}</div>
                 </div>
                 <!-- <ul id="list-item" class="list-group list-group-flush collapse">
                     <li *ngFor="let music of musicList" class="list-group-item" aria-hidden="true">{{music.titre}}</li>
@@ -27,24 +27,4 @@
             </div>
         </li>
     </ul>
-<!--
-    <table id="albumList" class="table table-striped">
-        <thead>
-            <th>Titre</th>
-            <th>Année</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let album of albumList">
-                <td>{{album.titre}}</td>
-                <td>{{album.annee | date:'dd-MM-yyyy'}}</td>
-                <td>
-                    <button class="btn"> - </button>
-                </td>
-                <td><p *ngIf="(album.votesSum) as value;">{{value}}<p></td>
-                <td>
-                    <button class="btn"> + </button>
-                </td>
-            </tr>
-        </tbody>
-    </table> -->
 </div>
