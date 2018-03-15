@@ -48,11 +48,24 @@ export class ArtisteService {
     async getAlbumsByArtist(idArtist) {
         console.log("getAlbumsByArtist")
         var url = environment.APIURL + "" + environment.SUFFIXAPIGETALLARTISTS +"/"+ idArtist + environment.SUFFIXAPIGETALLALBUMS;
-        console.log(url)
         var result = await fetch(url, {
             method: 'get'
         });
         var json = await result.json();
         return json.map((album) => new Album(album));
+    }
+    async addArtist(newArtist : Artiste){
+        console.log("addArtist")
+        var url = environment.APIURL+""+environment.SUFFIXAPIGETARTIST;
+        var result = await fetch(url, {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newArtist)
+        });
+
+        var json = await result.json();
+        return json.map((artiste) => new Artiste(artiste));
     }
 }
