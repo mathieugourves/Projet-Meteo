@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ConnexionComponent } from './connexion/connexion.component';
-import { AlbumComponent } from './album/album.component';
 import { MusiqueComponent } from './musique/musique.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AccueilComponent } from './accueil/accueil.component';
@@ -17,12 +16,15 @@ import { AlbumService} from './services/album/album.service'
 import { ProfileArtisteComponent } from './artiste/profile-artiste/profile-artiste.component';
 import { ListArtisteComponent } from './artiste/list-artiste/list-artiste.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { ListAlbumComponent } from './album/list-album/list-album.component';
+import { DetailAlbumComponent } from './album/detail-album/detail-album.component';
 
 const appRoutes: Routes = [
     { path: 'connexion', component: ConnexionComponent },
     { path: 'inscription', component: InscriptionComponent },
     { path: 'navigation', component: NavigationComponent },
-    { path: 'album', component: AlbumComponent },
+    { path: 'listAlbum', component: ListAlbumComponent },
+    { path: 'detailAlbum', component: DetailAlbumComponent },
     { path: 'musique', component: MusiqueComponent },
     { path: 'accueil', component: AccueilComponent },
     { path: 'listArtiste', component: ListArtisteComponent },
@@ -45,12 +47,13 @@ const appRoutes: Routes = [
         AppComponent,
         ConnexionComponent,
         NavigationComponent,
-        AlbumComponent,
         MusiqueComponent,
         AccueilComponent,
         ProfileArtisteComponent,
         ListArtisteComponent,
-        InscriptionComponent
+        InscriptionComponent,
+        ListAlbumComponent,
+        DetailAlbumComponent
     ],
 
   providers: [
