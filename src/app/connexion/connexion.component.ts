@@ -23,11 +23,11 @@ export class ConnexionComponent implements OnInit {
     }
 
     login() {
-        console.log("POST")
         this.http.post('/auth/signin', this.loginData).subscribe(resp => {
             this.data = resp;
             localStorage.setItem('jwtToken', this.data.token);
-            localStorage.setItem('user', this.data.user);
+            localStorage.setItem('userLogin', this.data.user.login);
+            localStorage.setItem('userDate', this.data.user.date);
             this.router.navigate(['/']);
         }, err => {
             this.message = err.error.msg;

@@ -5,13 +5,16 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { ConnexionComponent } from './connexion/connexion.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { ConnexionComponent } from './connexion/connexion.component';
 import { AccueilComponent } from './accueil/accueil.component';
 
+import { JwtHelper } from 'angular2-jwt';
 import { MusiqueService } from './services/musique/musique.service';
 import { ArtisteService } from './services/artiste/artiste.service';
-import { AlbumService} from './services/album/album.service'
+import { AlbumService } from './services/album/album.service';
+import { AuthService } from './services/auth/auth.service';
+import { AuthGuardService } from './services/auth/auth-guard.service';
 
 import { ProfileArtisteComponent } from './artiste/profile-artiste/profile-artiste.component';
 import { ListArtisteComponent } from './artiste/list-artiste/list-artiste.component';
@@ -21,7 +24,7 @@ import { DetailAlbumComponent } from './album/detail-album/detail-album.componen
 import { CreateAlbumComponent } from './album/create-album/create-album.component';
 import { CreateMusicComponent } from './musique/create-music/create-music.component';
 import { CreateArtistComponent } from './artiste/create-artist/create-artist.component';
-import {ListMusicComponent} from './musique/list-music/list-music.component';
+import { ListMusicComponent } from './musique/list-music/list-music.component';
 
 const appRoutes: Routes = [
     { path: 'accueil', component: AccueilComponent },
@@ -29,7 +32,7 @@ const appRoutes: Routes = [
     { path: 'inscription', component: InscriptionComponent },
     { path: 'navigation', component: NavigationComponent },
     //Album
-    { path: 'listAlbum', component: ListAlbumComponent },
+    { path: 'listAlbum', component: ListAlbumComponent, canActivate: [AuthGuardService] },
     { path: 'detailAlbum', component: DetailAlbumComponent },
     { path: 'createAlbum', component: CreateAlbumComponent },
     //Musique
@@ -68,11 +71,14 @@ const appRoutes: Routes = [
         ListMusicComponent
     ],
 
-  providers: [
-      MusiqueService,
-      ArtisteService,
-      AlbumService
-  ],
-  bootstrap: [AppComponent]
+    providers: [
+        JwtHelper,
+        MusiqueService,
+        ArtisteService,
+        AlbumService,
+        AuthService,
+        AuthGuardService
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
