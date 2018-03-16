@@ -4,7 +4,7 @@
     <select [(ngModel)]="selectedArtist" class="col-3" (change)="onArtistChange()">
       <option *ngFor="let artist of artisteList" [ngValue]="artist">{{artist.stagename}}</option>
     </select>
-    <p class="col-2">Sélectionner un Artiste</p>
+    <p class="col-2">Sélectionner un Album</p>
     <select [(ngModel)]="selectedAlbum" class="col-3" (change)="onAlbumChange()">
       <option *ngFor="let album of albumList" [ngValue]="album">{{album.titre}}</option>
     </select>

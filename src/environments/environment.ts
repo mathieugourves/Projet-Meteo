@@ -14,5 +14,6 @@ export const environment = {
   SUFFIXAPIGETMUSICSBYARTIST2:"/musics",
   SUFFIXAPIGETALLALBUMS:"/albums",
   SUFFIXAPIGETALBUMSBYARTIST:"/albums/",
-  SUFFIXAPIALBUM : "/album/"
+  SUFFIXAPIALBUM : "/album/",
+  SUFFIXAPIMUSIC : "/music/"
 };

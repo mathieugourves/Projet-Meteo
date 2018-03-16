@@ -1,3 +1,25 @@
-<p>
-  create-music works!
-</p>
+<div id="searchBar" class="row">
+    <div class="col-1"></div>
+    <p class="col-2">Sélectionner un Artiste</p>
+    <select [(ngModel)]="selectedArtist" class="col-3" (change)="onArtistChange()">
+      <option *ngFor="let artist of artisteList" [ngValue]="artist">{{artist.stagename}}</option>
+    </select>
+    <p class="col-2">Sélectionner un album</p>
+    <select [(ngModel)]="selectedAlbum" class="col-3">
+      <option *ngFor="let album of albumList" [ngValue]="album">{{album.titre}}</option>
+    </select>
+</div>
+<div id="albumContent" *ngIf="selectedAlbum">
+    <form (ngSubmit)="submitMusic()" #musicForm="ngForm">
+      <div class="form-group">
+        <label>Nom de la musique</label>
+        <input type="text" class="form-control" id="musicName" name="musicName" [(ngModel)]="musicName"  placeholder="Nom de la musique" required>
+      </div>
+      <div class="form-group">
+        <label>Date de sortie</label>
+        <input type="date" class="form-control" id="date" name="date"  [(ngModel)]="date" placeholder="Date de sortie" required>
+
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!musicForm.form.valid">Créer</button>
+    </form>
+</div>

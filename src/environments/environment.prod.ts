@@ -7,5 +7,7 @@ export const environment = {
   SUFFIXAPIGETARTIST: "/artist/",
   SUFFIXAPIGETMUSICSBYARTIST1: "/artist/",
   SUFFIXAPIGETMUSICSBYARTIST2:"/musics",
-  SUFFIXAPIGETALBUMSBYARTIST:"/albums/"
+  SUFFIXAPIGETALBUMSBYARTIST:"/albums/",
+  SUFFIXAPIALBUM : "/album/",
+  SUFFIXAPIMUSIC : "/music/"
 };
