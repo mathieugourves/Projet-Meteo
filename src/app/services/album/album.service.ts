@@ -14,11 +14,13 @@ export class AlbumService {
             method: 'get'
         });
         var json = await result.json();
+        console.log(json);
         return json.map((album) => new Album(album));
     }
-    async addAlbum(newAlbum : Album){
+
+    async addAlbum(newAlbum: Album) {
         console.log("addAlbum")
-        var url = environment.APIURL+""+environment.SUFFIXAPIALBUM;
+        var url = environment.APIURL + "" + environment.SUFFIXAPIALBUM;
         var result = await fetch(url, {
             method: 'post',
             headers: {

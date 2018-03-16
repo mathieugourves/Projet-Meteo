@@ -12,8 +12,6 @@ export class AuthService {
         if (token === null)
             return false;
 
-        console.log(this.jwtHelper.decodeToken(token));
-
         return !this.jwtHelper.isTokenExpired(token);
     }
 

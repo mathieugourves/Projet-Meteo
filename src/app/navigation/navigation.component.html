@@ -1,4 +1,4 @@
-<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+<nav class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-inverse">
     <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -41,15 +41,15 @@
         </ul>
         <div *ngIf="auth.isAuthenticated();then logout else login"></div>
         <ng-template #login>
-            <button class="btn btn-outline-info" routerLink="connexion">Connexion</button>
+            <button id="logButton" class="btn btn-outline-info" routerLink="connexion">Connexion</button>
         </ng-template>
         <ng-template #logout>
-            <span class="navbar-text">{{ auth.getUser().login }}</span>
-            <button class="btn btn-outline-info" (click)="logOut()">Déconnexion</button>
+            <span id="userName" class="navbar-text">{{ auth.getUser().login }}</span>
+            <button id="logButton" class="btn btn-outline-info" (click)="logOut()">Déconnexion</button>
         </ng-template>
     </div>
 </nav>
 
-<img class="img-fluid" src="../../assets/img/img6.jpg" />
+<img class="banner img-fluid" src="../../assets/img/img6.jpg" />
 
 <router-outlet></router-outlet>

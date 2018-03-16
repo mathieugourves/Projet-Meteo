@@ -1,3 +1,15 @@
 img.img-fluid {
 	margin-bottom: 20px;
 }
+
+nav.navbar button#logButton {
+    margin-left: 10px;
+}
+
+nav.navbar span#userName {
+    text-transform: capitalize;
+}
+
+img.banner {
+    margin-top: 56px;
+}

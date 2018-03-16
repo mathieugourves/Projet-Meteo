@@ -27,5 +27,5 @@ app.use(flash())
 
 routes(app, router, passport)
 
-console.log("Server Start on port ",port)
+console.log(`Server started http://localhost:${port}`)
 app.listen(port)

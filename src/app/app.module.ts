@@ -32,16 +32,16 @@ const appRoutes: Routes = [
     { path: 'inscription', component: InscriptionComponent },
     { path: 'navigation', component: NavigationComponent },
     //Album
-    { path: 'listAlbum', component: ListAlbumComponent, canActivate: [AuthGuardService] },
+    { path: 'listAlbum', component: ListAlbumComponent },
     { path: 'detailAlbum', component: DetailAlbumComponent },
-    { path: 'createAlbum', component: CreateAlbumComponent },
+    { path: 'createAlbum', component: CreateAlbumComponent, canActivate: [AuthGuardService] },
     //Musique
     { path: 'listMusique', component: ListMusicComponent },
-    { path: 'createMusique', component: CreateMusicComponent },
+    { path: 'createMusique', component: CreateMusicComponent, canActivate: [AuthGuardService] },
     //Artist Route
     { path: 'listArtiste', component: ListArtisteComponent },
     { path: 'profilArtiste', component: ProfileArtisteComponent },
-    { path: 'createArtiste', component: CreateArtistComponent },
+    { path: 'createArtiste', component: CreateArtistComponent, canActivate: [AuthGuardService] },
     //A laisser en dernier car chemin par défaut
     { path: '**', component: AccueilComponent }
 ];
