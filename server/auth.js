@@ -23,7 +23,7 @@ function auth(passport) {
                         var token = jwt.sign(user.toJSON(), config.secret);
                         res.json({
                             success: true,
-                            token: 'JWT ' + token
+                            token: 'JWT ' + token,
                             user: {
                                 login: user.login,
                                 date: user.date
