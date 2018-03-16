@@ -2,6 +2,7 @@ var express = require('express')
 var router = express.Router()
 const Artist = require('./models/ArtistModel.js')
 const Album = require('./models/AlbumModel.js')
+const Music = require('./models/MusicModel.js')
 
 function api(passport, connector) {
 
@@ -72,7 +73,6 @@ function api(passport, connector) {
 
     router.route('/artist/')
         .post(function (req,res){
-            console.log(req.body)
             var artist = new Artist({
                 firstName: req.body.firstname,
                 lastName: req.body.lastname,
@@ -82,7 +82,6 @@ function api(passport, connector) {
         })
     router.route('/album/')
         .post(function (req,res){
-            console.log(req.body)
             var album = new Album({
                 name: req.body.titre,
                 date: req.body.annee,
@@ -90,8 +89,20 @@ function api(passport, connector) {
                 votesSum: req.body.votesSum,
                 artist: req.body.artiste.id
             })
-            console.log(album)
+
             connector.addAlbum(album)
+        })
+    router.route('/music/')
+        .post(function (req,res){
+            var music = new Music({
+                name: req.body.titre,
+                date: req.body.annee,
+                votesCount: req.body.votesCount,
+                votesSum: req.body.votesSum,
+                artist: req.body.artiste.id,
+                album: req.body.idAlbum
+            })
+            connector.addMusic(music)
         })
 
 
