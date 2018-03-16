@@ -1,3 +1,21 @@
-<p>
-  create-album works!
-</p>
+<div id="searchBar" class="row">
+    <div class="col-1"></div>
+    <p class="col-2">Sélectionner un Artiste</p>
+    <select [(ngModel)]="selectedArtist" class="col-3">
+      <option *ngFor="let artist of artisteList" [ngValue]="artist">{{artist.stagename}}</option>
+    </select>
+</div>
+<div *ngIf="selectedArtist">
+    <form (ngSubmit)="submitAlbum()" #albumForm="ngForm">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Nom de l'album</label>
+        <input type="text" class="form-control" id="albumName" name="albumName" [(ngModel)]="albumName"  placeholder="Nom de l'album" required>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Date de sortie</label>
+        <input type="date" class="form-control" id="date" name="date"  [(ngModel)]="date" placeholder="Date de sortie" required>
+
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!albumForm.form.valid">Créer</button>
+    </form>
+</div>

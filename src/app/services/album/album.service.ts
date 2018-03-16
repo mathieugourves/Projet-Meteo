@@ -16,4 +16,18 @@ export class AlbumService {
         var json = await result.json();
         return json.map((album) => new Album(album));
     }
+    async addAlbum(newAlbum : Album){
+        console.log("addAlbum")
+        var url = environment.APIURL+""+environment.SUFFIXAPIALBUM;
+        var result = await fetch(url, {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newAlbum)
+        });
+
+        var json = await result.json();
+        return json.map((album) => new Album(album));
+    }
 }

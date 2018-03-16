@@ -1,6 +1,7 @@
 var express = require('express')
 var router = express.Router()
 const Artist = require('./models/ArtistModel.js')
+const Album = require('./models/AlbumModel.js')
 
 function api(passport, connector) {
 
@@ -78,6 +79,19 @@ function api(passport, connector) {
                 nickName: req.body.stagename
             })
             connector.addArtist(artist)
+        })
+    router.route('/album/')
+        .post(function (req,res){
+            console.log(req.body)
+            var album = new Album({
+                name: req.body.titre,
+                date: req.body.annee,
+                votesCount: req.body.votesCount,
+                votesSum: req.body.votesSum,
+                artist: req.body.artiste.id
+            })
+            console.log(album)
+            connector.addAlbum(album)
         })
 
 

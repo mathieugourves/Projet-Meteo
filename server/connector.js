@@ -40,14 +40,6 @@ module.exports = class MongoConnector {
     }
 
     addArtist(artist) {
-        console.log("coucou")
-        // var artist = new Artist({
-        //     firstName: firstname,
-        //     lastName: lastname,
-        //     nickName: stagename
-        // })
-        console.log(artist)
-
         return artist.save()
     }
     getArtistByFilter(filter) {
@@ -67,6 +59,9 @@ module.exports = class MongoConnector {
         return Artist.find({}).exec()
     }
 
+    addAlbum(album) {
+        return album.save()
+    }
     getAlbums() {
         return Album.find({}).populate('artist').exec()
     }

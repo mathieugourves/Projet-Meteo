@@ -20,7 +20,6 @@ export class DetailAlbumComponent implements OnInit {
   constructor(private artisteService: ArtisteService, private musicService: MusiqueService, private albumService: AlbumService) { }
 
   async ngOnInit() {
-      var vm = this;
       this.artisteList = await this.artisteService.getAllArtists()
   }
   async onArtistChange(){
