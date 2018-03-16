@@ -9,16 +9,24 @@
 			<li class="nav-item">
 				<a class="nav-link" routerLink="accueil">Accueil</a>
 			</li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="musique">Musique</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMusique" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                Musique
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMusique">
+                  <a class="dropdown-item" routerLink="listMusique">Lister les musiques</a>
+                  <a class="dropdown-item" routerLink="createMusique">Creer une musique</a>
+                </div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownAlbum" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                  Album
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownAlbum">
-                  <a class="dropdown-item" routerLink="album">Lister les Albums</a>
-                  <a class="dropdown-item" href="#">Détail d'Album</a>
+                  <a class="dropdown-item" routerLink="listAlbum">Lister les Albums</a>
+                  <a class="dropdown-item" routerLink="detailAlbum">Détail d'Album</a>
+                  <a class="dropdown-item" routerLink="createAlbum">creer un Album</a>
+
                 </div>
 			</li>
             <li class="nav-item dropdown">
@@ -28,6 +36,7 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownArtiste">
                   <a class="dropdown-item" routerLink="listArtiste">Lister Artistes</a>
                   <a class="dropdown-item" routerLink="profilArtiste">Profil d'Artiste</a>
+                   <a class="dropdown-item" routerLink="createArtiste">creer un Artiste</a>
                 </div>
 			</li>
 			<li class="nav-item">

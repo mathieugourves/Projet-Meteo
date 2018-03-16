@@ -1,0 +1,36 @@
+<div id="searchBar" class="row">
+    <div class="col-1"></div>
+    <p class="col-2">Sélectionner un Artiste</p>
+    <select [(ngModel)]="selectedArtist" class="col-3" (change)="onArtistChange()">
+      <option *ngFor="let artist of artisteList" [ngValue]="artist">{{artist.stagename}}</option>
+    </select>
+    <p class="col-2">Sélectionner un Artiste</p>
+    <select [(ngModel)]="selectedAlbum" class="col-3" (change)="onAlbumChange()">
+      <option *ngFor="let album of albumList" [ngValue]="album">{{album.titre}}</option>
+    </select>
+</div>
+<div id="albumContent" *ngIf="selectedAlbum">
+    <table id="tableauMusique" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Artiste</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let music of musicList">
+                <td>{{music.titre}}</td>
+                <td>{{music.artiste.stagename}}</td>
+                <td>{{music.annee | date:'dd-MM-yyyy'}}</td>
+                <td>
+                    <button class="btn"> - </button>
+                </td>
+                <td><p *ngIf="(music.votesSum) as value;">{{value}}<p></td>
+                <td>
+                    <button class="btn"> + </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

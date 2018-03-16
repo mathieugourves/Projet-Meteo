@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import {Musique} from 'bean/musique'
 import {Artiste} from 'bean/artiste'
 import {Album} from 'bean/album'
-import {AlbumService} from '../services/album/album.service';
+import {AlbumService} from 'app/services/album/album.service';
 
 @Component({
-    selector: 'app-album',
-    templateUrl: './album.component.html',
-    styleUrls: ['./album.component.css']
+  selector: 'app-list-album',
+  templateUrl: './list-album.component.html',
+  styleUrls: ['./list-album.component.css']
 })
-export class AlbumComponent implements OnInit {
+export class ListAlbumComponent implements OnInit {
     albumList: Album[];
   constructor(private albumService  :AlbumService) { }
 
@@ -20,5 +20,4 @@ export class AlbumComponent implements OnInit {
 
       });
   }
-
 }

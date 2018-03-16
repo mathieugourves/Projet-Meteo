@@ -3,6 +3,7 @@ const Music = require('./models/MusicModel.js')
 const Artist = require('./models/ArtistModel.js')
 const Album = require('./models/AlbumModel.js')
 const User = require('./models/UserModel.js')
+var ObjectID = require('mongodb').ObjectID;
 
 module.exports = class MongoConnector {
 
@@ -38,6 +39,17 @@ module.exports = class MongoConnector {
         return Music.find({}).populate('artist').populate('album').exec()
     }
 
+    addArtist(artist) {
+        console.log("coucou")
+        // var artist = new Artist({
+        //     firstName: firstname,
+        //     lastName: lastname,
+        //     nickName: stagename
+        // })
+        console.log(artist)
+
+        return artist.save()
+    }
     getArtistByFilter(filter) {
         let valARequeter = new RegExp(filter, "i");
         return Artist.find({

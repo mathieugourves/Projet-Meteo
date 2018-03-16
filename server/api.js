@@ -1,5 +1,6 @@
 var express = require('express')
 var router = express.Router()
+const Artist = require('./models/ArtistModel.js')
 
 function api(passport, connector) {
 
@@ -66,6 +67,17 @@ function api(passport, connector) {
         .put(function (req, res) {
             connector.setAlbumVote(req.params.id, req.params.vote)
                 .then((result) => res.json(result))
+        })
+
+    router.route('/artist/')
+        .post(function (req,res){
+            console.log(req.body)
+            var artist = new Artist({
+                firstName: req.body.firstname,
+                lastName: req.body.lastname,
+                nickName: req.body.stagename
+            })
+            connector.addArtist(artist)
         })
 
 

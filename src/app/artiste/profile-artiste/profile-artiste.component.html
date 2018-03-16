@@ -6,9 +6,14 @@
     </select>
 </div>
 <div *ngIf="selectedArtist">
-    <p>{{selectedArtist.stagename}}</p>
-    <p>{{selectedArtist.firstname}}</p>
-    <p>{{selectedArtist.lastname}}</p>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{selectedArtist.stagename}}</h5>
+            <p>{{selectedArtist.firstname}}</p>
+            <p>{{selectedArtist.lastname}}</p>
+        </div>
+    </div>
 
      <h3>Liste des Albums liés à <i>"{{selectedArtist.stagename}}"</i></h3>
     <ul class="list-group">
