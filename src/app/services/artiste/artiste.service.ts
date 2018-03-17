@@ -10,7 +10,7 @@ export class ArtisteService {
 
     async getAllArtists() {
         console.log("getAllArtists")
-        var url = environment.APIURL + "" + environment.SUFFIXAPIGETALLARTISTS;
+        var url = `${environment.API_URL}/${environment.SUFFIX_API_ARTISTS}`;
         var result = await fetch(url, {
             method: 'get'
         });
@@ -22,7 +22,7 @@ export class ArtisteService {
     async getArtistsByFilter(filter) {
         console.log("getArtistsByFilter")
         if (filter) {
-            var url = environment.APIURL + "" + environment.SUFFIXAPIGETARTISTSBYFILTER + "" + filter;
+            var url = `${environment.API_URL}/${environment.SUFFIX_API_ARTISTS}/${filter}`;
             var result = await fetch(url, {
                 method: 'get'
             });
@@ -32,31 +32,34 @@ export class ArtisteService {
         return {};
     }
 
-    async getArtist(idArtist) {
+    async getArtist(id) {
         console.log("getArtist")
-        if (idArtist) {
-            var url = environment.APIURL + "" + environment.SUFFIXAPIGETARTIST + "" + idArtist;
+
+        if (id) {
+            var url = `${environment.API_URL}/${environment.SUFFIX_API_ARTIST}/${id}`;
             var result = await fetch(url, {
                 method: 'get'
             });
             var json = await result.json();
             return json.map((artiste) => new Artiste(artiste));
         }
+
         return {};
     }
 
-    async getAlbumsByArtist(idArtist) {
+    async getAlbumsByArtist(id) {
         console.log("getAlbumsByArtist")
-        var url = environment.APIURL + "" + environment.SUFFIXAPIGETALLARTISTS +"/"+ idArtist + environment.SUFFIXAPIGETALLALBUMS;
+        var url = `${environment.API_URL}/${environment.SUFFIX_API_ARTISTS}/${id}/${environment.SUFFIX_API_ALBUMS}`;
         var result = await fetch(url, {
             method: 'get'
         });
         var json = await result.json();
         return json.map((album) => new Album(album));
     }
-    async addArtist(newArtist : Artiste){
+
+    async addArtist(newArtist: Artiste) {
         console.log("addArtist")
-        var url = environment.APIURL+""+environment.SUFFIXAPIGETARTIST;
+        var url = `${environment.API_URL}/${environment.SUFFIX_API_ARTIST}`;
         var result = await fetch(url, {
             method: 'post',
             headers: {

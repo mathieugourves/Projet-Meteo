@@ -8,7 +8,16 @@ export class MusiqueService {
     constructor() { }
 
     async getAllMusiques() {
-        var url = environment.APIURL + "" + environment.SUFFIXAPIGETALLMUSICS;
+        var url = `${environment.API_URL}/${environment.SUFFIX_API_MUSICS}`;
+        var result = await fetch(url, {
+            method: 'get'
+        });
+        var json = await result.json();
+        return json.map((musique) => new Musique(musique));
+    }
+
+    async getMusique(id) {
+        var url = `${environment.API_URL}/${environment.SUFFIX_API_MUSIC}/${id}`;
         var headers = new Headers({
             'Authorization': localStorage.getItem('jwtToken')
         });
@@ -21,7 +30,7 @@ export class MusiqueService {
     }
 
     async getMusicsByArtist(id) {
-        var url = environment.APIURL + "" + environment.SUFFIXAPIGETMUSICSBYARTIST1 + "" + id + "" + environment.SUFFIXAPIGETMUSICSBYARTIST2;
+        var url = `${environment.API_URL}/${environment.SUFFIX_API_ARTIST}/${id}/${environment.SUFFIX_API_MUSICS}`;
         var result = await fetch(url, {
             method: 'get'
         });
@@ -30,16 +39,17 @@ export class MusiqueService {
     }
 
     async getMusicsByAlbum(id) {
-        var url = environment.APIURL + "" + environment.SUFFIXAPIGETALLALBUMS + "/" + id + "" + environment.SUFFIXAPIGETALLMUSICS;
+        var url = `${environment.API_URL}/${environment.SUFFIX_API_ALBUMS}/${id}/${environment.SUFFIX_API_MUSICS}`;
         var result = await fetch(url, {
             method: 'get'
         });
         var json = await result.json();
         return json.map((musique) => new Musique(musique));
     }
-    async addMusic(newMusic : Musique){
+
+    async addMusic(newMusic: Musique) {
         console.log("addMusic")
-        var url = environment.APIURL+""+environment.SUFFIXAPIMUSIC;
+        var url = `${environment.API_URL}/${environment.SUFFIX_API_MUSIC}`;
         var result = await fetch(url, {
             method: 'post',
             headers: {

@@ -4,16 +4,12 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false,
-  APIURL : "http://localhost:3000/api",
-  SUFFIXAPIGETALLMUSICS : "/musics",
-  SUFFIXAPIGETALLARTISTS: "/artists",
-  SUFFIXAPIGETARTISTSBYFILTER: "/artists/",
-  SUFFIXAPIGETARTIST: "/artist/",
-  SUFFIXAPIGETMUSICSBYARTIST1: "/artist/",
-  SUFFIXAPIGETMUSICSBYARTIST2:"/musics",
-  SUFFIXAPIGETALLALBUMS:"/albums",
-  SUFFIXAPIGETALBUMSBYARTIST:"/albums/",
-  SUFFIXAPIALBUM : "/album/",
-  SUFFIXAPIMUSIC : "/music/"
+    production: false,
+    API_URL: "http://localhost:3000/api",
+    SUFFIX_API_MUSICS: "musics",
+    SUFFIX_API_MUSIC: "music",
+    SUFFIX_API_ARTISTS: "artists",
+    SUFFIX_API_ARTIST: "artist",
+    SUFFIX_API_ALBUMS: "albums",
+    SUFFIX_API_ALBUM: "album"
 };

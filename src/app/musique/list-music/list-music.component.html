@@ -1,26 +1,29 @@
 <h1 class="text-center align-center col">Liste des musiques du site</h1>
 <div id="musiquesDiv">
-<table id="tableauMusique" class="table table-striped">
-    <thead>
-        <tr>
-            <th>Titre</th>
-            <th>Artiste</th>
-            <th>Date</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let music of musicList">
-            <td>{{music.titre}}</td>
-            <td>{{music.artiste.stagename}}</td>
-            <td>{{music.annee | date:'dd-MM-yyyy'}}</td>
-            <td>
-                <button class="btn"> - </button>
-            </td>
-            <td><p *ngIf="(music.votesSum) as value;">{{value}}<p></td>
-            <td>
-                <button class="btn"> + </button>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<div>
+    <table id="tableauMusique" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Artiste</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let music of musicList">
+                <td><a [routerLink]="['/musique', music.id]">{{music.titre}}</a></td>
+                <td>{{music.artiste.stagename}}</td>
+                <td>{{music.annee | date:'dd-MM-yyyy'}}</td>
+                <td>
+                    <button class="btn"> - </button>
+                </td>
+                <td>
+                    <p *ngIf="(music.votesSum) as value;">{{value}}
+                        <p>
+                </td>
+                <td>
+                    <button class="btn"> + </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>

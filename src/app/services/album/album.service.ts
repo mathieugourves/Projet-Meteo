@@ -9,7 +9,7 @@ export class AlbumService {
 
     async getAllAlbums() {
         console.log("getAllAlbums")
-        var url = environment.APIURL + "" + environment.SUFFIXAPIGETALLALBUMS;
+        var url = `${environment.API_URL}/${environment.SUFFIX_API_ALBUMS}`;
         var result = await fetch(url, {
             method: 'get'
         });
@@ -20,7 +20,7 @@ export class AlbumService {
 
     async addAlbum(newAlbum: Album) {
         console.log("addAlbum")
-        var url = environment.APIURL + "" + environment.SUFFIXAPIALBUM;
+        var url = `${environment.API_URL}/${environment.SUFFIX_API_ALBUM}`;
         var result = await fetch(url, {
             method: 'post',
             headers: {

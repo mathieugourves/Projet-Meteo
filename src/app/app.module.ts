@@ -25,6 +25,7 @@ import { CreateAlbumComponent } from './album/create-album/create-album.componen
 import { CreateMusicComponent } from './musique/create-music/create-music.component';
 import { CreateArtistComponent } from './artiste/create-artist/create-artist.component';
 import { ListMusicComponent } from './musique/list-music/list-music.component';
+import { MusicComponent } from './musique/music/music.component';
 
 const appRoutes: Routes = [
     { path: 'accueil', component: AccueilComponent },
@@ -37,6 +38,7 @@ const appRoutes: Routes = [
     { path: 'createAlbum', component: CreateAlbumComponent, canActivate: [AuthGuardService] },
     //Musique
     { path: 'listMusique', component: ListMusicComponent },
+    { path: 'musique/:id', component: MusicComponent },
     { path: 'createMusique', component: CreateMusicComponent, canActivate: [AuthGuardService] },
     //Artist Route
     { path: 'listArtiste', component: ListArtisteComponent },
@@ -68,7 +70,8 @@ const appRoutes: Routes = [
         CreateAlbumComponent,
         CreateMusicComponent,
         CreateArtistComponent,
-        ListMusicComponent
+        ListMusicComponent,
+        MusicComponent
     ],
 
     providers: [

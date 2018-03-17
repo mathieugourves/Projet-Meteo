@@ -7,11 +7,14 @@ const Music = require('./models/MusicModel.js')
 function api(passport, connector) {
 
     router.route('/musics')
-        .get(passport.authenticate('jwt', {
-            session: false
-        }), function (req, res) {
-            console.log(getToken(req.headers))
+        .get(function (req, res) {
             connector.getMusics()
+                .then((result) => res.json(result))
+        })
+
+    router.route('/musics/:id')
+        .get(function (req, res) {
+            connector.getMusic(req.params.id)
                 .then((result) => res.json(result))
         })
 
@@ -21,9 +24,9 @@ function api(passport, connector) {
                 .then((result) => res.json(result))
         })
 
-    router.route('/artist/:idArtist')
+    router.route('/artist/:id')
         .get(function (req, res) {
-            connector.getArtist(req.params.idArtist)
+            connector.getArtist(req.params.id)
                 .then((result) => res.json(result))
         })
 
@@ -72,7 +75,7 @@ function api(passport, connector) {
         })
 
     router.route('/artist/')
-        .post(function (req,res){
+        .post(function (req, res) {
             var artist = new Artist({
                 firstName: req.body.firstname,
                 lastName: req.body.lastname,
@@ -80,8 +83,9 @@ function api(passport, connector) {
             })
             connector.addArtist(artist)
         })
+
     router.route('/album/')
-        .post(function (req,res){
+        .post(function (req, res) {
             var album = new Album({
                 name: req.body.titre,
                 date: req.body.annee,
@@ -92,8 +96,9 @@ function api(passport, connector) {
 
             connector.addAlbum(album)
         })
+
     router.route('/music/')
-        .post(function (req,res){
+        .post(function (req, res) {
             var music = new Music({
                 name: req.body.titre,
                 date: req.body.annee,
@@ -104,7 +109,6 @@ function api(passport, connector) {
             })
             connector.addMusic(music)
         })
-
 
     return router
 }

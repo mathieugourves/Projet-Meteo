@@ -6,6 +6,10 @@ nav.navbar button#logButton {
     margin-left: 10px;
 }
 
+nav.navbar button#logButton:hover {
+    cursor: pointer;
+}
+
 nav.navbar span#userName {
     text-transform: capitalize;
 }

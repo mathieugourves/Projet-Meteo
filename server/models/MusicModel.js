@@ -25,5 +25,9 @@ module.exports = mongoose.model('Music', new Schema({
     album: {
         type: Schema.Types.ObjectId,
         ref: 'Album'
+    },
+    link: {
+        type: String,
+        required: false
     }
 }))

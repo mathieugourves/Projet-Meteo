@@ -39,9 +39,16 @@ module.exports = class MongoConnector {
         return Music.find({}).populate('artist').populate('album').exec()
     }
 
+    getMusic(id) {
+        return Music.find({
+            _id: mongoose.Types.ObjectId(id)
+        }).populate('artist').populate('album').exec()
+    }
+
     addArtist(artist) {
         return artist.save()
     }
+
     getArtistByFilter(filter) {
         let valARequeter = new RegExp(filter, "i");
         return Artist.find({
@@ -49,7 +56,7 @@ module.exports = class MongoConnector {
         }).exec()
     }
 
-    getArtist(idArtist) {
+    getArtist(id) {
         return Artist.find({
             _id: mongoose.Types.ObjectId(idArtist)
         }).exec()
@@ -62,14 +69,17 @@ module.exports = class MongoConnector {
     addAlbum(album) {
         return album.save()
     }
+
     getAlbums() {
         return Album.find({}).populate('artist').exec()
     }
-    getAlbumsByArtist(idArtist){
+
+    getAlbumsByArtist(idArtist) {
         return Album.find({
-            artist : mongoose.Types.ObjectId(idArtist)
+            artist: mongoose.Types.ObjectId(idArtist)
         }).exec()
     }
+
     getMusicsByArtist(id) {
         return Music.find({
             artist: mongoose.Types.ObjectId(id)
@@ -81,11 +91,18 @@ module.exports = class MongoConnector {
             album: mongoose.Types.ObjectId(id)
         }).exec()
     }
+
     addMusic(music) {
         return music.save()
     }
-    setAlbumVote(id,vote) {
-        return Album.update({_id: mongoose.Types.ObjectId(id)},{ $set: { votesSum: vote }}).exec()
-    }
 
+    setAlbumVote(id, vote) {
+        return Album.update({
+            _id: mongoose.Types.ObjectId(id)
+        }, {
+            $set: {
+                votesSum: vote
+            }
+        }).exec()
+    }
 }
