@@ -1,2 +1,11 @@
-<iframe width="420" height="315" src="https://www.youtube.com/embed/Soa3gO7tL-c" allow="autoplay; encrypted-media">
-</iframe>
+<div class="container">
+    <h1 *ngIf="music">
+        {{ music.titre }}
+        <small class="text-muted">{{ music.artiste.stagename }} {{ music.album ? '/ ' + music.album.titre + ' ' : '' }}</small>
+        <span class="badge badge-dark">{{ music.annee.getFullYear() }}</span>
+    </h1>
+
+    <div *ngIf="music && music.link" class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" [src]="watchToEmbed(music.link)" allowautoplay></iframe>
+    </div>
+</div>

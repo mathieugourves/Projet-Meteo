@@ -4,7 +4,7 @@ export class Musique {
 
     id: string;
     titre: string;
-    annee: any;
+    annee: Date;
     idAlbum: string;
     artiste: Artiste;
     votesCount: number;
@@ -14,7 +14,7 @@ export class Musique {
     constructor(item: any) {
         this.id = item._id;
         this.titre = item.name;
-        this.annee = item.date;
+        this.annee = new Date(item.date);
         this.votesCount = item.votesCount;
         this.artiste = new Artiste(item.artist);
         this.votesSum = item.votesSum;

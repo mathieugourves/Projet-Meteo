@@ -41,11 +41,15 @@
         </ul>
         <div *ngIf="auth.isAuthenticated();then logout else login"></div>
         <ng-template #login>
-            <button id="logButton" class="btn btn-outline-info" routerLink="connexion">Connexion</button>
+            <button id="logButton" class="btn btn-outline-info" routerLink="connexion" octicon="sign-in">
+                <span>Connexion</span>
+            </button>
         </ng-template>
         <ng-template #logout>
             <span id="userName" class="navbar-text">{{ auth.getUser().login }}</span>
-            <button id="logButton" class="btn btn-outline-info" (click)="logOut()">Déconnexion</button>
+            <button id="logButton" class="btn btn-outline-info" (click)="logOut()" octicon="sign-out">
+                <span>Déconnexion</span>
+            </button>
         </ng-template>
     </div>
 </nav>

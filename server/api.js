@@ -12,7 +12,7 @@ function api(passport, connector) {
                 .then((result) => res.json(result))
         })
 
-    router.route('/musics/:id')
+    router.route('/music/:id')
         .get(function (req, res) {
             connector.getMusic(req.params.id)
                 .then((result) => res.json(result))
@@ -105,7 +105,8 @@ function api(passport, connector) {
                 votesCount: req.body.votesCount,
                 votesSum: req.body.votesSum,
                 artist: req.body.artiste.id,
-                album: req.body.idAlbum
+                album: req.body.idAlbum,
+                link: req.body.link
             })
             connector.addMusic(music)
         })

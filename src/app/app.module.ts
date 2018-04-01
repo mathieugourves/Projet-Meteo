@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { OcticonsDirective } from './directive/octicons/octicons.directive';
+
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ConnexionComponent } from './connexion/connexion.component';
@@ -59,6 +61,7 @@ const appRoutes: Routes = [
     ],
     declarations: [
         AppComponent,
+        OcticonsDirective,
         ConnexionComponent,
         NavigationComponent,
         AccueilComponent,

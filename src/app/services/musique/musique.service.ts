@@ -26,7 +26,7 @@ export class MusiqueService {
             headers: headers
         });
         var json = await result.json();
-        return json.map((musique) => new Musique(musique));
+        return new Musique(json);
     }
 
     async getMusicsByArtist(id) {

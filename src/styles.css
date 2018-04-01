@@ -1,11 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
-body{
-	margin:auto;
+body {
+    margin: auto;
 }
 
-table{
-	width:70%!important; 
-	margin: auto;
-	margin-top: 50px;
+table {
+    width: 70% !important;
+    margin: auto;
+    margin-top: 50px;
+}
+
+button svg.octicon {
+    float: left;
+    margin-top: 2px;
+    margin-right: 5px;
+    fill: currentColor;
 }

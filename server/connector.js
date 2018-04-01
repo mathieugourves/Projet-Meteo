@@ -40,7 +40,7 @@ module.exports = class MongoConnector {
     }
 
     getMusic(id) {
-        return Music.find({
+        return Music.findOne({
             _id: mongoose.Types.ObjectId(id)
         }).populate('artist').populate('album').exec()
     }

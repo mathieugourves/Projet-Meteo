@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { MusiqueService } from 'app/services/musique/musique.service';
 import { Musique } from 'bean/musique'
@@ -12,7 +13,7 @@ export class MusicComponent implements OnInit {
 
     music: Musique;
 
-    constructor(private route: ActivatedRoute, private musiqueService: MusiqueService) { }
+    constructor(private route: ActivatedRoute, private musiqueService: MusiqueService, private sanitizer: DomSanitizer) { }
 
     ngOnInit() {
         this.route.params.subscribe(async params => {
@@ -22,4 +23,8 @@ export class MusicComponent implements OnInit {
         });
     }
 
+    watchToEmbed(link: string) {
+        var url = link.replace(/\s*[a-zA-Z\/\/:\.]*youtube.com\/watch\?v=([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i, 'https://www.youtube.com/embed/$1');
+        return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    }
 }

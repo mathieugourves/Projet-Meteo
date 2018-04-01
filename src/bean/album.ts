@@ -4,7 +4,7 @@ export class Album {
 
     id: string;
     titre: string;
-    annee: any;
+    annee: Date;
     votesSum: number;
     votesCount: number;
     artiste: Artiste;
