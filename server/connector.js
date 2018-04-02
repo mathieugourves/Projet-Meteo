@@ -3,6 +3,7 @@ const Music = require('./models/MusicModel.js')
 const Artist = require('./models/ArtistModel.js')
 const Album = require('./models/AlbumModel.js')
 const User = require('./models/UserModel.js')
+const Note = require('./models/NoteModel.js')
 var ObjectID = require('mongodb').ObjectID;
 
 module.exports = class MongoConnector {
@@ -104,5 +105,23 @@ module.exports = class MongoConnector {
                 votesSum: vote
             }
         }).exec()
+    }
+
+    getNoteByItem(id) {
+        return Note.find({
+                item: mongoose.Types.ObjectId(id)
+            })
+            .exec()
+            .then(function (notes) {
+                var sum = notes.reduce((a, b) => a + b.value, 0)
+                return Promise.resolve({
+                    note: sum / notes.length,
+                    total: notes.length
+                })
+            })
+    }
+
+    addNote(note) {
+        return note.save()
     }
 }

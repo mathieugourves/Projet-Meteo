@@ -36,8 +36,6 @@ export class CreateMusicComponent implements OnInit {
                 id: null,
                 titre: this.musicName,
                 annee: this.date,
-                votesSum: 0,
-                votesCount: 0,
                 idAlbum: this.selectedAlbum.id,
                 artiste: this.selectedArtist,
                 link: null

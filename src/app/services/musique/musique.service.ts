@@ -18,12 +18,8 @@ export class MusiqueService {
 
     async getMusique(id) {
         var url = `${environment.API_URL}/${environment.SUFFIX_API_MUSIC}/${id}`;
-        var headers = new Headers({
-            'Authorization': localStorage.getItem('jwtToken')
-        });
         var result = await fetch(url, {
-            method: 'get',
-            headers: headers
+            method: 'get'
         });
         var json = await result.json();
         return new Musique(json);

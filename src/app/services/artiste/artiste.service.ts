@@ -58,12 +58,17 @@ export class ArtisteService {
     }
 
     async addArtist(newArtist: Artiste) {
-        console.log("addArtist")
+        console.log("addArtist", localStorage.getItem('jwtToken'))
+        var headers = new Headers({
+            'Authorization': localStorage.getItem('jwtToken')
+        });
+        console.log(headers);
         var url = `${environment.API_URL}/${environment.SUFFIX_API_ARTIST}`;
         var result = await fetch(url, {
             method: 'post',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': localStorage.getItem('jwtToken')
             },
             body: JSON.stringify(newArtist)
         });

@@ -10,14 +10,6 @@ module.exports = mongoose.model('Album', new Schema({
         type: Date,
         required: true
     },
-    votesCount: {
-        type: Number,
-        required: true
-    },
-    votesSum: {
-        type: Number,
-        required: true
-    },
     artist: {
         type: Schema.Types.ObjectId,
         ref: 'Artist'
