@@ -107,7 +107,7 @@ module.exports = class MongoConnector {
         }).exec()
     }
 
-    getNoteByItem(id) {
+    getNoteAverage(id) {
         return Note.find({
                 item: mongoose.Types.ObjectId(id)
             })
@@ -121,7 +121,23 @@ module.exports = class MongoConnector {
             })
     }
 
+    getNote(id) {
+        return Note.findById(mongoose.Types.ObjectId(id)).exec()
+    }
+
     addNote(note) {
         return note.save()
+    }
+
+    editNote(id, value) {
+        return Note.findByIdAndUpdate(mongoose.Types.ObjectId(id), {
+            value: value
+        }).exec()
+    }
+
+    deleteNote(id) {
+        return Note.deleteOne({
+            _id: mongoose.Types.ObjectId(id)
+        })
     }
 }

@@ -97,8 +97,25 @@ function api(passport, connector) {
         })
 
     router.route('/note/:id')
+        .get(passport.authenticate('jwt', {
+            session: false
+        }), function (req, res) {
+            connector.getNote(req.params.id, req.user._id).then(res.json)
+        })
+        .put(passport.authenticate('jwt', {
+            session: false
+        }), function (req, res) {
+            connector.editNote(req.params.id, req.user._id, req.body.value).then(res.json)
+        })
+        .delete(passport.authenticate('jwt', {
+            session: false
+        }), function (req, res) {
+            connector.deleteNote(req.params.id, req.user._id).then(res.json)
+        })
+
+    router.route('note/:id/average')
         .get(function (req, res) {
-            connector.getNoteByItem(req.params.id).then(res.json)
+            connector.getNoteAverage(req.params.id).then(res.json)
         })
 
     router.route('/note/')
