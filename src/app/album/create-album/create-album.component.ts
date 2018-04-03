@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 import { ArtisteService } from 'app/services/artiste/artiste.service';
 import { MusiqueService } from 'app/services/musique/musique.service';
 import { AlbumService } from 'app/services/album/album.service';
@@ -14,7 +15,7 @@ export class CreateAlbumComponent implements OnInit {
     selectedArtist: Artiste;
     albumName: string;
     date: Date;
-    constructor(private artisteService: ArtisteService, private albumService: AlbumService) { }
+    constructor(private artisteService: ArtisteService, private albumService: AlbumService, private router: Router) { }
 
     async ngOnInit() {
         this.artisteList = await this.artisteService.getAllArtists()
@@ -28,9 +29,13 @@ export class CreateAlbumComponent implements OnInit {
                 annee: this.date,
                 artiste: this.selectedArtist
             }
-            console.log(album)
-            var response = this.albumService.addAlbum(album)
-            console.log("response : ", response)
+            try {
+                var album = this.albumService.addAlbum(album)
+                console.log(album)
+                this.router.navigate(['listAlbum/']);
+            } catch (err) {
+                console.log("error : ", err)
+            }
         }
     }
 }
