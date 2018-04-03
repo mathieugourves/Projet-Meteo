@@ -18,6 +18,7 @@ export class CreateMusicComponent implements OnInit {
     selectedAlbum: Album;
     musicName: string;
     date: Date;
+    link:string;
 
     constructor(private artisteService: ArtisteService, private musicService: MusiqueService, private albumService: AlbumService) { }
 
@@ -31,14 +32,14 @@ export class CreateMusicComponent implements OnInit {
 
     submitMusic() {
         var music: Musique;
-        if (this.musicName && this.date) {
+        if (this.musicName && this.date && this.link) {
             music = {
                 id: null,
                 titre: this.musicName,
                 annee: this.date,
                 idAlbum: this.selectedAlbum.id,
                 artiste: this.selectedArtist,
-                link: null
+                link: this.link
             }
             console.log(this.selectedAlbum)
 

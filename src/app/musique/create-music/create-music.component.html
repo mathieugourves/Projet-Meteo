@@ -18,7 +18,10 @@
       <div class="form-group">
         <label>Date de sortie</label>
         <input type="date" class="form-control" id="date" name="date"  [(ngModel)]="date" placeholder="Date de sortie" required>
-
+      </div>
+      <div class="form-group">
+        <label>Lien Youtube de la musique</label>
+        <input type="text" class="form-control" id="musicLink" name="musicLink" [(ngModel)]="link"  placeholder="Lien Youtube de la musique" required>
       </div>
       <button type="submit" class="btn btn-primary" [disabled]="!musicForm.form.valid">Créer</button>
     </form>
