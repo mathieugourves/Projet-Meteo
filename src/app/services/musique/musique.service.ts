@@ -47,7 +47,7 @@ export class MusiqueService {
     async addMusic(newMusic: Musique) {
         console.log("addMusic")
         var url = `${environment.API_URL}/${environment.SUFFIX_API_MUSIC}`;
-        var result = await fetch(url, {
+        var response = await fetch(url, {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
@@ -55,8 +55,14 @@ export class MusiqueService {
             body: JSON.stringify(newMusic)
         });
 
-        var json = await result.json();
-        return json.map((music) => new Musique(music));
+        console.log(response)
+
+        if (response.ok) {
+            var json = await response.json();
+            console.log(json)
+            return new Musique(json);
+        }
+        throw new Error();
     }
 
     async getAllComments(id) {

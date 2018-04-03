@@ -9,18 +9,15 @@ export class ArtisteService {
     constructor() { }
 
     async getAllArtists() {
-        console.log("getAllArtists")
         var url = `${environment.API_URL}/${environment.SUFFIX_API_ARTISTS}`;
         var result = await fetch(url, {
             method: 'get'
         });
         var json = await result.json();
-        console.log(json)
         return json.map((artiste) => new Artiste(artiste));
     }
 
     async getArtistsByFilter(filter) {
-        console.log("getArtistsByFilter")
         if (filter) {
             var url = `${environment.API_URL}/${environment.SUFFIX_API_ARTISTS}/${filter}`;
             var result = await fetch(url, {
@@ -58,13 +55,11 @@ export class ArtisteService {
     }
 
     async addArtist(newArtist: Artiste) {
-        console.log("addArtist", localStorage.getItem('jwtToken'))
         var headers = new Headers({
             'Authorization': localStorage.getItem('jwtToken')
         });
-        console.log(headers);
         var url = `${environment.API_URL}/${environment.SUFFIX_API_ARTIST}`;
-        var result = await fetch(url, {
+        var response = await fetch(url, {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json',
@@ -73,7 +68,10 @@ export class ArtisteService {
             body: JSON.stringify(newArtist)
         });
 
-        var json = await result.json();
-        return json.map((artiste) => new Artiste(artiste));
+        if (response.ok) {
+            var json = await response.json()
+            return new Artiste(json);
+        }
+        throw new Error();
     }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'app/services/auth/auth.service';
 import { MusiqueService } from 'app/services/musique/musique.service';
 import { Musique } from 'bean/musique'
 import { Comment } from 'bean/comment'
@@ -16,7 +17,7 @@ export class MusicComponent implements OnInit {
     comments: Array<Comment>;
     commentData = { commentField: '' };
 
-    constructor(private route: ActivatedRoute, private musiqueService: MusiqueService, private sanitizer: DomSanitizer) { }
+    constructor(private route: ActivatedRoute, private musiqueService: MusiqueService, private sanitizer: DomSanitizer, private auth: AuthService) { }
 
     ngOnInit() {
         this.route.params.subscribe(async params => {

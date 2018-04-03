@@ -9,7 +9,7 @@
         <iframe class="embed-responsive-item" [src]="watchToEmbed(music.link)" allowautoplay></iframe>
     </div>
 
-    <form class="mt-5" (ngSubmit)="sendComment()" #commentForm="ngForm">
+    <form *ngIf="auth.isAuthenticated()" class="mt-5" (ngSubmit)="sendComment()" #commentForm="ngForm">
         <div class="form-group">
             <textarea class="form-control" [(ngModel)]="commentData.commentField" name="commentField" rows="3" placeholder="Ecrivez un commentaire" required></textarea>
         </div>

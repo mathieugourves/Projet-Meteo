@@ -68,6 +68,7 @@ function api(passport, connector) {
                 nickName: req.body.stagename
             })
             connector.addArtist(artist).then((result) => res.json(result))
+                .catch((err) => res.status(500).send('Add error'))
         })
 
     router.route('/album/')
@@ -81,6 +82,7 @@ function api(passport, connector) {
             })
 
             connector.addAlbum(album).then((result) => res.json(result))
+                .catch((err) => res.status(500).send('Add error'))
         })
 
     router.route('/music/')
@@ -95,6 +97,7 @@ function api(passport, connector) {
                 link: req.body.link
             })
             connector.addMusic(music).then((result) => res.json(result))
+                .catch((err) => res.status(500).send('Add error'))
         })
 
     router.route('/note/:id')
@@ -130,6 +133,7 @@ function api(passport, connector) {
                 user: req.user._id
             })
             connector.addNote(note).then((result) => res.json(result))
+                .catch((err) => res.status(500).send('Add error'))
         })
 
     router.route('/music/:id/comments')
@@ -148,10 +152,13 @@ function api(passport, connector) {
                 user: req.user._id
             })
             connector.addComment(comment).then(function (result) {
-                result.populate('user', ['login'], function (err) {
-                    res.json(result)
+                    result.populate('user', ['login'], function (err) {
+                        if (err)
+                            return res.status(500).send('Populate error')
+                        res.json(result)
+                    })
                 })
-            })
+                .catch((err) => res.status(500).send('Add error'))
         })
 
     return router
