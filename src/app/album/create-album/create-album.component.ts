@@ -30,8 +30,8 @@ export class CreateAlbumComponent implements OnInit {
                 artiste: this.selectedArtist
             }
             try {
-                var album = this.albumService.addAlbum(album)
-                console.log(album)
+                var response = this.albumService.addAlbum(album)
+                console.log(response)
                 this.router.navigate(['listAlbum/']);
             } catch (err) {
                 console.log("error : ", err)

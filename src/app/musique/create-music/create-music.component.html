@@ -10,6 +10,7 @@
     </select>
 </div>
 <div id="albumContent" *ngIf="selectedAlbum">
+    <div *ngIf="isOnError">Une erreur est survenu coté serveur.</div>
     <form (ngSubmit)="submitMusic()" #musicForm="ngForm">
       <div class="form-group">
         <label>Nom de la musique</label>

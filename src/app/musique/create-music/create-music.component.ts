@@ -21,6 +21,7 @@ export class CreateMusicComponent implements OnInit {
     musicName: string;
     date: Date;
     link: string;
+    isOnError:boolean;
 
     constructor(private artisteService: ArtisteService, private musicService: MusiqueService, private albumService: AlbumService, private router: Router) { }
 
@@ -34,6 +35,7 @@ export class CreateMusicComponent implements OnInit {
 
     async submitMusic() {
         var music: Musique;
+        this.isOnError = false;
         if (this.musicName && this.date && this.link) {
             music = {
                 id: null,
@@ -52,6 +54,7 @@ export class CreateMusicComponent implements OnInit {
                 this.router.navigate(['musique/' + music.id]);
             } catch (err) {
                 console.log("error : ", err)
+                this.isOnError = true;
             }
         }
 
