@@ -8,4 +8,26 @@
     <div *ngIf="music && music.link" class="embed-responsive embed-responsive-16by9">
         <iframe class="embed-responsive-item" [src]="watchToEmbed(music.link)" allowautoplay></iframe>
     </div>
+
+    <form class="mt-5" (ngSubmit)="sendComment()" #commentForm="ngForm">
+        <div class="form-group">
+            <textarea class="form-control" [(ngModel)]="commentData.commentField" name="commentField" rows="3" placeholder="Ecrivez un commentaire" required></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!commentForm.form.valid">Envoyer</button>
+    </form>
+
+    <ul class="list-unstyled mt-5">
+        <li class="media mt-3" *ngFor="let comment of comments">
+            <img class="mr-3" src="logo/user.png" style="width:64px">
+            <div class="media-body">
+                <h5 class="mt-0 mb-1">
+                    {{ comment.user }}
+                    <small class="text-muted">{{ comment.date | date:'yyyy-MM-dd HH:mm:ss' }}</small>
+                </h5>
+                <p>
+                    {{ comment.content }}
+                </p>
+            </div>
+        </li>
+    </ul>
 </div>

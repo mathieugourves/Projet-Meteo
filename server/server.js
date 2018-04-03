@@ -17,10 +17,6 @@ app.use(bodyParser.urlencoded({
     extended: true
 }))
 
-app.use(session({
-    secret: 'leprojetmusique'
-}))
-
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(flash())

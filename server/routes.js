@@ -9,6 +9,7 @@ const dbPort = 27017
 const dbName = "MusicDB"
 const dbOptions = require('./db-credentials.json')
 const dist = path.join(__dirname, '..', 'dist')
+const logo = path.join(__dirname, 'logo')
 
 module.exports = function (app, router, passport) {
 
@@ -17,6 +18,8 @@ module.exports = function (app, router, passport) {
     app.use('/auth', auth(passport))
 
     app.use('/api', api(passport, connector))
+
+    app.use('/logo', express.static(logo))
 
     app.use(express.static(dist))
 

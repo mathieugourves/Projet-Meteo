@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
-import { Musique } from 'bean/musique'
+import { Musique } from 'bean/musique';
+import { Comment } from 'bean/comment';
 
 @Injectable()
 export class MusiqueService {
@@ -58,4 +59,25 @@ export class MusiqueService {
         return json.map((music) => new Musique(music));
     }
 
+    async getAllComments(id) {
+        var url = `${environment.API_URL}/${environment.SUFFIX_API_MUSIC}/${id}/${environment.SUFFIX_API_COMMENTS}`;
+        var result = await fetch(url, {
+            method: 'get'
+        });
+        var json = await result.json();
+        return json.map((comment) => new Comment(comment));
+    }
+
+    async addComment(id, content) {
+        var url = `${environment.API_URL}/${environment.SUFFIX_API_MUSIC}/${id}/${environment.SUFFIX_API_COMMENT}`;
+        var result = await fetch(url, {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': localStorage.getItem('jwtToken')
+            },
+            body: JSON.stringify({ content: content })
+        });
+        return new Comment(await result.json());
+    }
 }

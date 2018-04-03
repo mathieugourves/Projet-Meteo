@@ -4,6 +4,7 @@ const Artist = require('./models/ArtistModel.js')
 const Album = require('./models/AlbumModel.js')
 const User = require('./models/UserModel.js')
 const Note = require('./models/NoteModel.js')
+const Comment = require('./models/CommentModel.js')
 var ObjectID = require('mongodb').ObjectID;
 
 module.exports = class MongoConnector {
@@ -138,6 +139,16 @@ module.exports = class MongoConnector {
     deleteNote(id) {
         return Note.deleteOne({
             _id: mongoose.Types.ObjectId(id)
-        })
+        }).exec()
+    }
+
+    getCommentByMusic(id) {
+        return Comment.find({
+            music: mongoose.Types.ObjectId(id)
+        }).populate('user', ['login']).exec()
+    }
+
+    addComment(comment) {
+        return comment.save()
     }
 }

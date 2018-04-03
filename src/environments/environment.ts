@@ -11,5 +11,7 @@ export const environment = {
     SUFFIX_API_ARTISTS: "artists",
     SUFFIX_API_ARTIST: "artist",
     SUFFIX_API_ALBUMS: "albums",
-    SUFFIX_API_ALBUM: "album"
+    SUFFIX_API_ALBUM: "album",
+    SUFFIX_API_COMMENT: "comment",
+    SUFFIX_API_COMMENTS: "comments"
 };

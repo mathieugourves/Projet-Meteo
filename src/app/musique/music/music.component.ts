@@ -3,6 +3,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { MusiqueService } from 'app/services/musique/musique.service';
 import { Musique } from 'bean/musique'
+import { Comment } from 'bean/comment'
 
 @Component({
     selector: 'app-music',
@@ -12,6 +13,8 @@ import { Musique } from 'bean/musique'
 export class MusicComponent implements OnInit {
 
     music: Musique;
+    comments: Array<Comment>;
+    commentData = { commentField: '' };
 
     constructor(private route: ActivatedRoute, private musiqueService: MusiqueService, private sanitizer: DomSanitizer) { }
 
@@ -20,7 +23,14 @@ export class MusicComponent implements OnInit {
             var id = params['id'];
             var response = await this.musiqueService.getMusique(id);
             this.music = response;
+            this.comments = await this.musiqueService.getAllComments(id);
         });
+    }
+
+    async sendComment() {
+        var response = await this.musiqueService.addComment(this.music.id, this.commentData.commentField);
+        this.comments.unshift(response);
+        this.commentData.commentField = '';
     }
 
     watchToEmbed(link: string) {
