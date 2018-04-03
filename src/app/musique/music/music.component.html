@@ -2,7 +2,7 @@
     <h1 *ngIf="music">
         {{ music.titre }}
         <small class="text-muted">{{ music.artiste.stagename }} {{ music.album ? '/ ' + music.album.titre + ' ' : '' }}</small>
-        <span class="badge badge-dark">{{ music.annee.getFullYear() }}</span>
+        <span class="badge badge-info">{{ music.annee.getFullYear() }}</span>
     </h1>
 
     <div *ngIf="music && music.link" class="embed-responsive embed-responsive-16by9">
