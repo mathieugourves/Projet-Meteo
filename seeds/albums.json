@@ -2,7 +2,7 @@
     "_id": {
         "$oid": "000000000000000000000001"
     },
-    "name": "Fission Chop Thunder",
+    "name": "God's Favourite Band",
     "votesSum": 12,
     "votesCount": 3,
     "date": {
@@ -14,11 +14,11 @@
     "_id": {
         "$oid": "000000000000000000000002"
     },
-    "name": "Bone Grinding Pyramidscroll",
+    "name": "Reggatta de Blanc",
     "votesSum": 12,
     "votesCount": 3,
     "date": {
-        "$date": "1971-09-04"
+        "$date": "1979-09-21"
     }
     ,"artist": {
         "$oid": "000000000000000000000002"

@@ -2,7 +2,7 @@
     "_id": {
         "$oid": "000000000000000000000001"
     },
-    "name": "Je suis un caillou",
+    "name": "Boulevard Of Borken Dreams",
     "votesCount": 0,
     "votesSum": 0,
     "date": {
@@ -13,21 +13,23 @@
     },
     "album": {
         "$oid": "000000000000000000000001"
-    }
+    },
+    "link":"https://www.youtube.com/watch?v=Soa3gO7tL-c"
 }, {
     "_id": {
         "$oid": "000000000000000000000002"
     },
-    "name": "Dangerous Spell",
+    "name": "Message in a Bottle",
     "votesCount": 0,
     "votesSum": 0,
     "date": "1975-09-29",
     "artist": {
-        "$oid": "000000000000000000000003"
+        "$oid": "000000000000000000000002"
     },
     "album": {
         "$oid": "000000000000000000000002"
-    }
+    },
+    "link":"https://www.youtube.com/watch?v=MbXWrmQW-OE"
 }, {
     "_id": {
         "$oid": "000000000000000000000003"

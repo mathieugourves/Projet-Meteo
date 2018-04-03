@@ -2,16 +2,16 @@
     "_id": {
         "$oid": "000000000000000000000001"
     },
-    "firstName": "Pierre",
-    "lastName": "Buisson",
-    "nickName": "Le buisson rocheux"
+    "firstName": "Green",
+    "lastName": "Day",
+    "nickName": "Green Day"
 }, {
     "_id": {
         "$oid": "000000000000000000000002"
     },
-    "firstName": "Adi",
-    "lastName": "Hardbattle",
-    "nickName": "Lesley Diamond"
+    "firstName": "Pol",
+    "lastName": "Ice",
+    "nickName": "Police"
 }, {
     "_id": {
         "$oid": "000000000000000000000003"
