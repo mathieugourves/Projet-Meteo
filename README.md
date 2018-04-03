@@ -7,3 +7,6 @@ Pour installer correctement le projet avant de l'utiliser :
     - node server/server.js
     - ng build --watch ou  npm run watch
     - aller sur http://localhost:3000/
+
+## Structure des tables en base de donnée
+## Fonctionnalités implémenter
